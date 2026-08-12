@@ -1,0 +1,150 @@
+.contenedor {
+  background-color: #f1f3f8;
+  min-height: 100vh;
+  padding: 50px 8%;
+  box-sizing: border-box;
+}
+
+
+
+.botones-grid {
+  max-width: 780px;
+  margin: 0 auto 65px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.boton-principal {
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  background-color: white;
+
+  border: 2px solid #68c7ec;
+  border-radius: 14px;
+
+  color: #12358f;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.boton-principal i {
+  font-size: 32px;
+}
+
+.boton-principal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   SECCIÓN LINKS
+========================= */
+
+.seccion-links {
+  max-width: 825px;
+  margin: auto;
+
+  background-color: white;
+
+  border: 2px solid #68c7ec;
+  border-radius: 15px;
+
+  padding: 26px 35px 30px;
+
+  box-sizing: border-box;
+}
+
+
+/* Título */
+
+.titulo-seccion {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  margin-bottom: 28px;
+}
+
+.icono-seccion {
+  width: 58px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid #68c7ec;
+  border-radius: 14px;
+
+  color: #12358f;
+
+  font-size: 30px;
+}
+
+.titulo-seccion h2 {
+  margin: 0;
+
+  color: #12358f;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.titulo-seccion p {
+  margin: 5px 0 0;
+
+  color: #333;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   BOTONES KRONOS
+========================= */
+
+.links-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+
+  padding-left: 80px;
+}
+
+.link-item {
+  height: 48px;
+
+  border: 1px solid #f2ca48;
+  border-radius: 13px;
+
+  background-color: #ffefb8;
+
+  color: #12358f;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.link-item:hover {
+  background-color: #ffe48b;
+  transform: translateY(-2px);
+}
