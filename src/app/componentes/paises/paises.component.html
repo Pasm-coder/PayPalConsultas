@@ -1,0 +1,1112 @@
+<app-header></app-header>
+
+<!-- =========================
+     ENCABEZADO
+========================= -->
+<section class="paises-header">
+
+  <div class="paises-icon">
+    <i class="fa-solid fa-earth-americas"></i>
+  </div>
+
+  <div>
+    <h1>Países</h1>
+    <p>Selecciona un país para consultar la información de retiros</p>
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAÍSES
+========================= -->
+<section class="paises-section">
+
+  <div class="paises-container">
+
+    <!-- ESTADOS UNIDOS -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Estados Unidos')">
+
+      <img
+        src="../../../assets/Paises/img/USA.png"
+        alt="Estados Unidos">
+
+    </div>
+
+
+    <!-- MÉXICO -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('México')">
+
+      <img
+        src="../../../assets/Paises/img/MX.jpg"
+        alt="México">
+
+    </div>
+
+
+    <!-- COLOMBIA -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Colombia')">
+
+      <img
+        src="../../../assets/Paises/img/CO.png"
+        alt="Colombia">
+
+    </div>
+
+
+    <!-- VENEZUELA -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Venezuela')">
+
+      <img
+        src="../../../assets/Paises/img/VZLA.png"
+        alt="Venezuela">
+
+    </div>
+
+
+    <!-- ARGENTINA -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Argentina')">
+
+      <img
+        src="../../../assets/Paises/img/AR.png"
+        alt="Argentina">
+
+    </div>
+
+
+    <!-- REPÚBLICA DOMINICANA -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('República Dominicana')">
+
+      <img
+        src="../../../assets/Paises/img/RD.png"
+        alt="República Dominicana">
+
+    </div>
+
+
+    <!-- CHILE -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Chile')">
+
+      <img
+        src="../../../assets/Paises/img/CL.png"
+        alt="Chile">
+
+    </div>
+
+    <!-- PERÚ -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Perú')">
+
+      <img
+        src="../../../assets/Paises/img/PE.jpeg"
+        alt="Perú">
+
+    </div>
+
+    <!-- Panama -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Panama')">
+
+      <img
+        src="../../../assets/Paises/img/PA.svg"
+        alt="Panama">
+
+    </div>
+
+    <!-- Costa Rica -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Costa Rica')">
+
+      <img
+        src="../../../assets/Paises/img/CR.png"
+        alt="Costa Rica">
+
+    </div>
+
+    <!-- Ecuador -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Ecuador')">
+
+      <img
+        src="../../../assets/Paises/img/EC.svg"
+        alt="Ecuador">
+
+    </div>
+
+    <!-- Bolivia -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Bolivia')">
+
+      <img
+        src="../../../assets/Paises/img/BO.png"
+        alt="Bolivia">
+
+    </div>
+
+    <!-- Ecuador -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Ecuador')">
+
+      <img
+        src="../../../assets/Paises/img/EC.svg"
+        alt="Ecuador">
+
+    </div>
+
+    <!-- Honduras -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Honduras')">
+
+      <img
+        src="../../../assets/Paises/img/HN.png"
+        alt="Honduras">
+
+    </div>
+
+    <!-- Uruguay -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Uruguay')">
+
+      <img
+        src="../../../assets/Paises/img/UY.png"
+        alt="Uruguay">
+
+    </div>
+
+    <!-- Nicaragua -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Nicaragua')">
+
+      <img
+        src="../../../assets/Paises/img/NI.png"
+        alt="Nicaragua">
+
+    </div>
+
+    <!-- El Salvador -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('El Salvador')">
+
+      <img
+        src="../../../assets/Paises/img/SV.svg"
+        alt="El Salvador">
+
+    </div>
+
+    <!-- Guatemala -->
+    <div
+      class="pais-item"
+      (click)="abrirPais('Guatemala')">
+
+      <img
+        src="../../../assets/Paises/img/GT.svg"
+        alt="Guatemala">
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     MODAL GENERAL
+===================================================== -->
+
+<div
+  class="modal-fondo"
+  *ngIf="paisSeleccionado"
+  (click)="cerrarPais()">
+
+  <div
+    class="modal-pais"
+    (click)="$event.stopPropagation()">
+
+
+    <!-- =================================================
+         ESTADOS UNIDOS
+    ================================================== -->
+
+    <ng-container *ngIf="paisSeleccionado === 'Estados Unidos'">
+
+      <div class="modal-header">
+
+        <div class="modal-pais-titulo">
+
+          <img
+            src="../../../assets/Paises/img/USA.png"
+            alt="Estados Unidos">
+
+          <div>
+            <h2>Estados Unidos</h2>
+            <p>Dólar Americano (USD)</p>
+          </div>
+
+        </div>
+
+        <button
+          class="cerrar-modal"
+          (click)="cerrarPais()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="modal-contenido">
+
+        <!-- DOCUMENTO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-id-card"></i>
+            Documento
+          </h3>
+
+          <p>
+            Licencia de conducir, tarjeta de Identidad y pasaporte
+          </p>
+
+        </div>
+
+
+        <!-- MÉTODOS DE RETIRO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            Métodos de retiro
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local o USA</li>
+            <li>Tarjeta débito VISA/Mastercard</li>
+            <li>Tarjeta PayPal Debit</li>
+            <li>Cheque</li>
+          </ul>
+
+        </div>
+
+
+        <!-- MONTO MÍNIMO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-dollar-sign"></i>
+            Monto mínimo
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local: $1 USD</li>
+            <li>Tarjeta débito: $1 USD</li>
+            <li>Cheque: $150 USD</li>
+          </ul>
+
+        </div>
+
+
+        <!-- TIEMPO DE FONDOS -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-clock"></i>
+            Tiempo de fondos
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local: 5 días hábiles</li>
+            <li>Tarjeta débito: 48 horas</li>
+            <li>Cheque: 2–4 semanas</li>
+            <li>Retiro instantáneo: 30 minutos – 24 horas</li>
+          </ul>
+
+        </div>
+
+
+        <!-- RECARGAR SALDO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-wallet"></i>
+            Recargar saldo PayPal
+          </h3>
+
+          <ul>
+            <li>Puede recargar desde tarjeta débito o cuenta bancaria</li>
+            <li>Monto mínimo: $1 USD</li>
+            <li>Cuenta bancaria: 5 días hábiles</li>
+            <li>Tarjeta débito: 24 horas hábiles</li>
+          </ul>
+
+        </div>
+
+
+        <!-- COMISIONES -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-percent"></i>
+            Comisiones
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria estándar: sin comisión</li>
+            <li>Cuenta bancaria instantánea: 1.25%</li>
+            <li>Tarjeta débito estándar: sin comisión</li>
+            <li>Tarjeta débito instantánea: 1.75%</li>
+            <li>Cheque: $1.50 USD</li>
+            <li>PayPal Debit MoneyPass: sin comisión</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </ng-container>
+
+
+    <!-- =================================================
+         MÉXICO
+    ================================================== -->
+
+    <ng-container *ngIf="paisSeleccionado === 'México'">
+
+      <div class="modal-header">
+
+        <div class="modal-pais-titulo">
+
+          <img
+            src="../../../assets/Paises/img/MX.jpg"
+            alt="México">
+
+          <div>
+            <h2>México</h2>
+            <p>Peso Mexicano (MXN)</p>
+          </div>
+
+        </div>
+
+        <button
+          class="cerrar-modal"
+          (click)="cerrarPais()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="modal-contenido">
+
+        <!-- DOCUMENTO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-id-card"></i>
+            Documento
+          </h3>
+
+          <p>
+            DNI, INE, CURP, IFE
+          </p>
+
+        </div>
+
+
+        <!-- MÉTODOS -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            Métodos de retiro
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local</li>
+            <li>Cuenta bancaria USA</li>
+          </ul>
+
+        </div>
+
+
+        <!-- RECARGA -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-ban"></i>
+            Recargar saldo PayPal
+          </h3>
+
+          <p>
+            No es posible recargar saldo PayPal.
+          </p>
+
+        </div>
+
+
+        <!-- RETIROS AUTOMÁTICOS -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-arrows-rotate"></i>
+            Retiros automáticos
+          </h3>
+
+          <p>
+            Los retiros automáticos se realizan a medianoche
+            por normativa local (Ley Fintech).
+          </p>
+
+        </div>
+
+
+        <!-- TIEMPO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-clock"></i>
+            Tiempo de fondos
+          </h3>
+
+          <ul>
+            <li>Retiro estándar: 5 días hábiles</li>
+            <li>Retiro instantáneo: 30 minutos</li>
+          </ul>
+
+        </div>
+
+
+        <!-- MONTO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-dollar-sign"></i>
+            Monto mínimo
+          </h3>
+
+          <p>
+            No existe monto mínimo para la transferencia automática.
+          </p>
+
+        </div>
+
+
+        <!-- COMISIONES -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-percent"></i>
+            Comisiones
+          </h3>
+
+          <ul>
+            <li>Retiro local estándar: sin comisión</li>
+            <li>Retiro instantáneo: $40 MXN</li>
+            <li>Cuenta bancaria USA: sin comisión</li>
+          </ul>
+
+        </div>
+
+
+        <!-- NOTA -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-circle-info"></i>
+            Nota
+          </h3>
+
+          <p>
+            Facturación empresas usa DETECNO EMAIL608.
+          </p>
+
+        </div>
+
+      </div>
+
+    </ng-container>
+
+
+    <!-- =================================================
+         COLOMBIA
+    ================================================== -->
+
+    <ng-container *ngIf="paisSeleccionado === 'Colombia'">
+
+      <div class="modal-header">
+
+        <div class="modal-pais-titulo">
+
+          <img
+            src="../../../assets/Paises/img/CO.png"
+            alt="Colombia">
+
+          <div>
+            <h2>Colombia</h2>
+            <p>Peso Colombiano (COP)</p>
+          </div>
+
+        </div>
+
+        <button
+          class="cerrar-modal"
+          (click)="cerrarPais()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="modal-contenido">
+
+        <!-- DOCUMENTO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-id-card"></i>
+            Documento
+          </h3>
+
+          <p>
+            Cédula de ciudadanía antigua / actual,
+            PPT / Cédula de extranjería
+          </p>
+
+        </div>
+
+
+        <!-- RECARGA -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-ban"></i>
+            Recargar saldo PayPal
+          </h3>
+
+          <p>
+            No puede recargar saldo PayPal.
+          </p>
+
+        </div>
+
+
+        <!-- MONTO MÍNIMO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-dollar-sign"></i>
+            Monto mínimo
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local: $30 USD</li>
+            <li>Cuenta bancaria USA: $1 USD</li>
+          </ul>
+
+        </div>
+
+
+        <!-- TERCERO REGULADOR -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-building-columns"></i>
+            Tercero regulador
+          </h3>
+
+          <p>
+            Pagos Internacionales (Banco W)
+          </p>
+
+        </div>
+
+
+        <!-- MÉTODOS -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            Métodos de retiro
+          </h3>
+
+          <ul>
+            <li>Nequi → TEAM1188 / EMAIL627</li>
+            <li>BBVA local → HELP2B3</li>
+            <li>Cuenta bancaria USA</li>
+          </ul>
+
+        </div>
+
+
+        <!-- TIEMPO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-clock"></i>
+            Tiempo de fondos
+          </h3>
+
+          <p>
+            3–5 días hábiles
+          </p>
+
+        </div>
+
+
+        <!-- COMISIONES -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-percent"></i>
+            Comisiones
+          </h3>
+
+          <ul>
+            <li>Retiro local: $3.500 COP</li>
+            <li>Cuenta bancaria USA: 3.50%</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </ng-container>
+
+
+    <!-- =================================================
+         REPÚBLICA DOMINICANA
+    ================================================== -->
+
+    <ng-container *ngIf="paisSeleccionado === 'República Dominicana'">
+
+      <div class="modal-header">
+
+        <div class="modal-pais-titulo">
+
+          <img
+            src="../../../assets/Paises/img/RD.png"
+            alt="República Dominicana">
+
+          <div>
+            <h2>República Dominicana</h2>
+            <p>Peso Dominicano (DOP)</p>
+          </div>
+
+        </div>
+
+        <button
+          class="cerrar-modal"
+          (click)="cerrarPais()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="modal-contenido">
+
+        <!-- DOCUMENTO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-id-card"></i>
+            Documento
+          </h3>
+
+          <p>
+            Cédula de identidad y electoral
+          </p>
+
+        </div>
+
+
+        <!-- MÉTODOS -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            Métodos de retiro
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local</li>
+            <li>Cuenta bancaria USA</li>
+            <li>Wire Transfer</li>
+          </ul>
+
+        </div>
+
+
+        <!-- RECARGA -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-ban"></i>
+            Recargar saldo PayPal
+          </h3>
+
+          <p>
+            No es posible recargar saldo PayPal.
+          </p>
+
+        </div>
+
+
+        <!-- MONTO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-dollar-sign"></i>
+            Monto mínimo
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local: $10 USD</li>
+            <li>Cuenta bancaria USA: $1 USD</li>
+            <li>Wire Transfer: $20 USD</li>
+          </ul>
+
+        </div>
+
+
+        <!-- TIEMPO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-clock"></i>
+            Tiempo de fondos
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local: 1–2 días hábiles</li>
+            <li>Wire Transfer: 1–2 días hábiles</li>
+            <li>Cuenta bancaria USA: 5 días hábiles</li>
+          </ul>
+
+        </div>
+
+
+        <!-- COMISIONES -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-percent"></i>
+            Comisiones
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local: $100 DOP</li>
+            <li>Cuenta bancaria USA: 3%</li>
+            <li>Wire Transfer: 1% — mínimo $10 USD</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </ng-container>
+
+
+    <!-- =================================================
+         ARGENTINA
+    ================================================== -->
+
+    <ng-container *ngIf="paisSeleccionado === 'Argentina'">
+
+      <div class="modal-header">
+
+        <div class="modal-pais-titulo">
+
+          <img
+            src="../../../assets/Paises/img/AR.png"
+            alt="Argentina">
+
+          <div>
+            <h2>Argentina</h2>
+            <p>Peso Argentino (ARS)</p>
+          </div>
+
+        </div>
+
+        <button
+          class="cerrar-modal"
+          (click)="cerrarPais()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="modal-contenido">
+
+        <!-- DOCUMENTO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-id-card"></i>
+            Documento
+          </h3>
+
+          <p>
+            DNI
+          </p>
+
+        </div>
+
+
+        <!-- MÉTODOS -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-money-bill-transfer"></i>
+            Métodos de retiro
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local</li>
+            <li>Cuenta bancaria USA</li>
+            <li>Cheque por correo postal</li>
+          </ul>
+
+        </div>
+
+
+        <!-- MONTO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-dollar-sign"></i>
+            Monto mínimo
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local: $20 USD</li>
+            <li>Cuenta bancaria USA: $1 USD</li>
+            <li>Cheque: $150 USD</li>
+          </ul>
+
+        </div>
+
+
+        <!-- TIEMPO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-clock"></i>
+            Tiempo de fondos
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local: 5 días hábiles</li>
+            <li>Cuenta bancaria USA: 5 días hábiles</li>
+            <li>Cheque: 4–6 semanas</li>
+          </ul>
+
+        </div>
+
+
+        <!-- TERCERO -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-building-columns"></i>
+            Tercero regulador
+          </h3>
+
+          <p>
+            Jet Peru
+          </p>
+
+        </div>
+
+
+        <!-- RECARGA -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-ban"></i>
+            Recargar saldo PayPal
+          </h3>
+
+          <p>
+            No es posible recargar saldo PayPal.
+          </p>
+
+        </div>
+
+
+        <!-- COMISIONES -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-percent"></i>
+            Comisiones
+          </h3>
+
+          <ul>
+            <li>Cuenta bancaria local: $75 ARS por retiro</li>
+            <li>Cuenta bancaria USA: 3.50%</li>
+            <li>Cheque: $11 USD</li>
+          </ul>
+
+        </div>
+
+
+        <!-- NOTAS -->
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-circle-info"></i>
+            Notas importantes
+          </h3>
+
+          <ul>
+
+            <li>
+              La cuenta bancaria asociada debe estar en pesos argentinos.
+            </li>
+
+            <li>
+              Las cuentas locales en dólares son rechazadas/revertidas.
+            </li>
+
+            <li>
+              Para retirar USD, se debe vincular una cuenta bancaria
+              de Estados Unidos a nombre del usuario.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </ng-container>
+
+
+    <!-- =================================================
+         VENEZUELA
+    ================================================== -->
+
+    <ng-container *ngIf="paisSeleccionado === 'Venezuela'">
+
+      <div class="modal-header">
+
+        <div class="modal-pais-titulo">
+
+          <img
+            src="../../../assets/Paises/img/VZLA.png"
+            alt="Venezuela">
+
+          <div>
+            <h2>Venezuela</h2>
+            <p>Información de retiros</p>
+          </div>
+
+        </div>
+
+        <button
+          class="cerrar-modal"
+          (click)="cerrarPais()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="modal-contenido">
+
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-circle-info"></i>
+            Información
+          </h3>
+
+          <p>
+            Información pendiente de agregar.
+          </p>
+
+        </div>
+
+      </div>
+
+    </ng-container>
+
+
+    <!-- =================================================
+         CHILE
+    ================================================== -->
+
+    <ng-container *ngIf="paisSeleccionado === 'Chile'">
+
+      <div class="modal-header">
+
+        <div class="modal-pais-titulo">
+
+          <img
+            src="../../../assets/Paises/img/CL.png"
+            alt="Chile">
+
+          <div>
+            <h2>Chile</h2>
+            <p>Información de retiros</p>
+          </div>
+
+        </div>
+
+        <button
+          class="cerrar-modal"
+          (click)="cerrarPais()">
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="modal-contenido">
+
+        <div class="info-card">
+
+          <h3>
+            <i class="fa-solid fa-circle-info"></i>
+            Información
+          </h3>
+
+          <p>
+            Información pendiente de agregar.
+          </p>
+
+        </div>
+
+      </div>
+
+    </ng-container>
+
+
+  </div>
+
+</div>

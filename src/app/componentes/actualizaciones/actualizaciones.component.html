@@ -1,0 +1,417 @@
+<app-header></app-header>
+
+<div class="actualizaciones-page">
+
+  <!-- ============================
+       ENCABEZADO
+  ============================= -->
+
+  <section class="actualizaciones-header">
+
+    <div class="header-content">
+
+      <div class="header-icon">
+        <i class="fa-solid fa-rotate"></i>
+      </div>
+
+      <div>
+        <h1>Actualizaciones</h1>
+
+        <p>
+          Mantente informado sobre las novedades y cambios importantes.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ============================
+       CONTENIDO
+  ============================= -->
+
+  <section class="actualizaciones-content">
+
+    <div class="actualizaciones-container">
+
+
+      <!-- ============================
+           ACTUALIZACIÓN 1
+      ============================= -->
+
+      <article class="actualizacion">
+
+        <div class="actualizacion-icon">
+          <i class="fa-solid fa-file-pdf"></i>
+        </div>
+
+        <div class="actualizacion-info">
+
+          <div class="actualizacion-top">
+
+            <span class="tipo">
+              Nueva actualización
+            </span>
+
+            <span class="fecha">
+              9 de septiembre de 2026
+            </span>
+
+          </div>
+
+          <h2>
+            Scripts para chats autorizados por QA
+          </h2>
+
+          <p>
+            Ya se encuentra disponible el nuevo documento con los scripts
+            para chats autorizados por QA. Consulta el material para
+            conocer los mensajes y lineamientos que pueden utilizarse
+            durante la atención al cliente.
+          </p>
+
+          <a
+            href="assets/images/livechat.pdf"
+            target="_blank"
+            class="boton-actualizacion">
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            Ver PDF
+
+          </a>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- ============================
+     ACTUALIZACIÓN CT
+============================= -->
+
+<article class="actualizacion">
+
+  <div class="actualizacion-icon">
+    <i class="fa-solid fa-hand-holding-dollar"></i>
+  </div>
+
+  <div class="actualizacion-info">
+
+    <div class="actualizacion-top">
+
+      <span class="tipo">
+        Información importante
+      </span>
+
+      <span class="fecha">
+        9 de septiembre de 2026
+      </span>
+
+    </div>
+
+    <h2>
+      Actualización de CTs
+    </h2>
+
+    <p>
+      Se actualizaron los escenarios y montos autorizados
+      para otorgar CT de cortesía.
+    </p>
+
+    <!-- BOTÓN -->
+
+    <button
+      type="button"
+      class="btn-ver-ct"
+      (click)="toggleCTs()">
+
+      <i
+        class="fa-solid"
+        [class.fa-chevron-down]="!mostrarCTs"
+        [class.fa-chevron-up]="mostrarCTs">
+      </i>
+
+      {{ mostrarCTs ? 'Ocultar CTs' : 'Ver CTs' }}
+
+    </button>
+
+
+    <!-- =================================
+         INFORMACIÓN DESPLEGABLE
+    ================================== -->
+
+    <div
+      class="ct-desplegable"
+      *ngIf="mostrarCTs">
+
+
+      <!-- EQUIPO 1 -->
+
+      <div class="ct-bloque">
+
+        <h3>
+          <i class="fa-solid fa-users"></i>
+
+          Equipos de Luz Cisneros (CW),
+          Cristian Pinzon (CW) y Andy Rodriguez (CW)
+        </h3>
+
+        <p>
+          Se pondrá disponible nuevamente el plan de
+          <strong>“No digas no”</strong>.
+        </p>
+
+        <p>
+          Para los siguientes escenarios pueden dar hasta
+          <strong>$50.00 USD:</strong>
+        </p>
+
+        <ul>
+
+          <li>
+            Evitar creación de disputa.
+          </li>
+
+          <li>
+            Evitar apelación de disputa.
+          </li>
+
+          <li>
+            Reembolso no reflejado.
+          </li>
+
+          <li>
+            Retiro no reflejado.
+          </li>
+
+          <li>
+            Comisión por conversión de divisa.
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- EQUIPO 2 -->
+
+      <div class="ct-bloque">
+
+        <h3>
+          <i class="fa-solid fa-scale-balanced"></i>
+
+          Equipo de Jhoan Perez (CW)
+        </h3>
+
+        <p>
+          Estarán aprobados los siguientes escenarios
+          para el equipo de Disputas:
+        </p>
+
+        <div class="ct-lista">
+
+          <div class="ct-fila">
+
+            <span>
+              Cobro de comisión
+            </span>
+
+            <strong>
+              Hasta $30.00 USD
+            </strong>
+
+          </div>
+
+          <div class="ct-fila">
+
+            <span>
+              Cobro de comisión por tercero
+              (Wire Transfer)
+            </span>
+
+            <strong>
+              Hasta $50.00 USD
+            </strong>
+
+          </div>
+
+          <div class="ct-fila">
+
+            <span>
+              Cupón no aplicado / no recibido /
+              error para guardar
+            </span>
+
+            <strong>
+              Sin límite
+            </strong>
+
+          </div>
+
+          <div class="ct-fila">
+
+            <span>
+              Evitar apertura de una disputa
+            </span>
+
+            <strong>
+              Hasta $35.00 USD
+            </strong>
+
+          </div>
+
+          <div class="ct-fila">
+
+            <span>
+              Evitar apelación de una disputa
+            </span>
+
+            <strong>
+              Hasta $50.00 USD
+            </strong>
+
+          </div>
+
+          <div class="ct-fila">
+
+            <span>
+              Cierre pronto de una disputa
+            </span>
+
+            <strong>
+              Hasta $50.00 USD
+            </strong>
+
+          </div>
+
+        </div>
+
+        <div class="ct-nota">
+
+          <i class="fa-solid fa-circle-info"></i>
+
+          Cupón no aplicado / no recibido /
+          error para guardar: requiere revisión previa con el PA.
+
+        </div>
+
+      </div>
+
+
+      <!-- EQUIPO 3 -->
+
+      <div class="ct-bloque">
+
+        <h3>
+          <i class="fa-solid fa-users"></i>
+
+          Equipos de Ricardo Buitrago (CW),
+          Juan Meneses (CW) y Karen Astaiza (CW)
+        </h3>
+
+        <p>
+          Se podrá dar CT de cortesía por los siguientes escenarios:
+        </p>
+
+        <div class="ct-lista">
+
+          <div class="ct-fila">
+
+            <span>
+              Cobro de comisión
+            </span>
+
+            <strong>
+              Hasta $30.00 USD
+            </strong>
+
+          </div>
+
+          <div class="ct-fila">
+
+            <span>
+              Cubrir cobros de comisión por tercero
+              de Wire Transfer
+            </span>
+
+            <strong>
+              Hasta $50.00 USD
+            </strong>
+
+          </div>
+
+          <div class="ct-fila">
+
+            <span>
+              Cupón no aplicado a compra /
+              Cupón no recibido /
+              Cupón por error para guardar
+            </span>
+
+            <strong>
+              Sin máximo
+            </strong>
+
+          </div>
+
+          <div class="ct-fila">
+
+            <span>
+              Evitar apertura de una disputa
+            </span>
+
+            <strong>
+              $35.00 USD
+            </strong>
+
+          </div>
+
+          <div class="ct-fila">
+
+            <span>
+              Evitar la apelación de una disputa
+            </span>
+
+            <strong>
+              $50.00 USD
+            </strong>
+
+          </div>
+
+        </div>
+
+        <div class="ct-nota">
+
+          <i class="fa-solid fa-circle-info"></i>
+
+          Antes de generar el CT para los casos de cupón,
+          se debe revisar con el PA.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</article>
+
+
+
+    </div>
+
+    
+
+  </section>
+
+  
+
+</div>
+
+
+
+<app-footer></app-footer>

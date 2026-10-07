@@ -1,107 +1,298 @@
-.staff {
-  min-height: 100vh;
+/* =========================
+   SECCIÓN STAFF
+========================= */
+
+.staff-section {
   background-color: #f1f3f8;
+  padding: 50px 70px 100px;
+  min-height: 700px;
+}
 
-  padding: 40px 20px 70px;
+.staff-section h1 {
+  text-align: center;
+  color: #123da0;
+  font-family: 'Secular One', sans-serif;
+  font-size: 48px;
+  margin-bottom: 50px;
+}
 
-  border-top: 4px solid #68c7ec;
+
+/* =========================
+   GRID
+========================= */
+
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+
+  max-width: 1050px;
+  margin: auto;
+}
+
+
+/* =========================
+   TARJETA
+========================= */
+
+.staff-card {
+  height: 300px;
+
+  perspective: 1000px;
+}
+
+
+/* =========================
+   CONTENEDOR QUE GIRA
+========================= */
+
+.staff-card-inner {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  transition: transform 0.7s;
+
+  transform-style: preserve-3d;
+}
+
+
+/* AL PASAR EL MOUSE */
+
+.staff-card:hover .staff-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+/* =========================
+   CARAS
+========================= */
+
+.staff-card-front,
+.staff-card-back {
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  backface-visibility: hidden;
+
+  border-radius: 12px;
 
   box-sizing: border-box;
 }
 
 
+/* =========================
+   PARTE FRONTAL
+========================= */
 
-.staff h1 {
-  margin: 0 0 35px;
-
-  text-align: center;
-
-  color: #12358f;
-
-  font-size: 42px;
-  font-weight: 700;
-}
-
-
-
-.staff-grid {
-  width: 100%;
-  max-width: 780px;
-
-  margin: 0 auto;
-
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 28px 36px;
-}
-
-
-
-.staff-card {
-  width: 225px;
-  height: 265px;
+.staff-card-front {
 
   background-color: white;
 
-  padding: 20px;
+  border: 3px solid #123da0;
 
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 25px;
+}
+
+
+/* FOTO */
+
+.foto {
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background-color: #e5eaf2;
+
+  margin-bottom: 15px;
+}
+
+
+.foto img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* NOMBRE */
+
+.staff-card-front h2 {
+
+  color: #123da0;
+
+  font-family: 'Secular One', sans-serif;
+
+  font-size: 25px;
+
+  margin: 5px 0;
+}
+
+
+/* EQUIPO */
+
+.staff-card-front p {
+
+  font-size: 18px;
+
+  color: #333;
+
+  margin: 0;
+}
+
+
+/* =========================
+   PARTE TRASERA
+========================= */
+
+.staff-card-back {
+
+  background-color: #123da0;
+
+  color: white;
+
+  transform: rotateY(180deg);
+
+  padding: 25px;
+}
+
+
+/* NOMBRE */
+
+.staff-card-back h2 {
+
+  font-family: 'Secular One', sans-serif;
+
+  font-size: 25px;
+
+  margin: 0;
+
+  color: white;
+}
+
+
+/* EQUIPO */
+
+.staff-card-back .equipo {
+
+  font-size: 17px;
+
+  margin: 3px 0 12px;
+}
+
+
+/* LÍNEA */
+
+.linea {
+
+  width: 100%;
+  height: 2px;
+
+  background-color: #68c7ec;
+
+  margin-bottom: 15px;
+}
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.info-staff p {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 8px;
+
+  font-size: 14px;
+
+  margin: 10px 0;
+
+  line-height: 1.3;
+}
+
+
+.info-staff i {
+
+  color: #f9d45f;
+
+  width: 20px;
 
   text-align: center;
 
-  border: 3px solid;
-
-  transition: 0.2s ease;
+  margin-top: 2px;
 }
 
 
+.info-staff strong {
 
-.azul {
-  border-color: #12358f;
+  margin-right: 3px;
 }
 
-.amarillo {
-  border-color: #f2d467;
+
+/* =========================
+   COLORES ALTERNOS
+========================= */
+
+.staff-card:nth-child(2) .staff-card-front,
+.staff-card:nth-child(5) .staff-card-front {
+
+  border-color: #f5c62f;
 }
 
-.celeste {
+
+.staff-card:nth-child(3) .staff-card-front,
+.staff-card:nth-child(6) .staff-card-front {
+
   border-color: #68c7ec;
 }
 
 
+/* =========================
+   RESPONSIVE
+========================= */
 
-.staff-card img {
-  width: 177px;
-  height: 157px;
+@media (max-width: 900px) {
 
-  object-fit: cover;
+  .staff-grid {
 
-  display: block;
+    grid-template-columns: repeat(2, 1fr);
 
-  margin: 0 auto 10px;
+  }
 
-  background-color: #d9d9d9;
 }
 
 
+@media (max-width: 600px) {
 
-.staff-card h2 {
-  margin: 5px 0 2px;
+  .staff-section {
 
-  color: #12358f;
+    padding: 35px 20px;
 
-  font-size: 21px;
-  font-weight: 700;
-}
+  }
 
+  .staff-grid {
 
+    grid-template-columns: 1fr;
 
-.staff-card p {
-  margin: 0;
+  }
 
-  color: #12358f;
-
-  font-size: 17px;
 }

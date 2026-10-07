@@ -1,61 +1,115 @@
 <app-header></app-header>
 
 <div class="home">
-    <div clas="banner">
-     <img src="../../../assets/images/PayPal Latam.png" class="img">
+
+  <!-- BANNER -->
+  <div class="banner">
+    <img
+      src="../../../assets/images/PayPal Latam.png"
+      class="banner-img"
+      alt="PayPal Latam"
+    >
   </div>
-  
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220">
-  <path fill="#5FCEFE" fill-opacity="1" d="M0,64L60,85.3C120,107,240,149,360,154.7C480,160,600,128,720,133.3C840,139,960,181,1080,176C1200,171,1320,117,1380,90.7L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+  <!-- ONDAS -->
 
-    <path fill="#F9D45F" fill-opacity="1" d="M0,96L80,90.7C160,85,320,75,480,90.7C640,107,800,149,960,154.7C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220">
+  <path fill="#68c7ec" fill-opacity="1" d="M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,149.3C672,139,768,149,864,181.3C960,213,1056,267,1152,266.7C1248,267,1344,213,1392,186.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+  <path fill="#0638A8" fill-opacity="1" d="M0,320L720,96L1440,256L1440,320L720,320L0,320Z"></path>
+  <path fill="#0638A8" fill-opacity="1" d="M0,288L0,256L720,256L720,0L1440,0L1440,320L720,320L720,320L0,320L0,320Z"></path>
 
+    <path fill="#F9D45F" fill-opacity="1" d="M0,96L80,90.7C160,85,320,75,480,90.7C640,107,800,149,960,154.7C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
 
+</svg>
 
- <section class="cards">
-    <div class="div_grande">
-        <div class="boxall" routerLink="/soporte">
-            <h3 class="tarjetas_titulo" routerLink="/soporte"></h3>
-            <i class="fa-solid fa-headset"></i>
-            <img src="" class="img2">
-            <div class="texto-encima"> Soporte </div>
+  <!-- TARJETAS -->
+  <section class="cards">
+
+    <div class="cards-container">
+
+      <!-- SOPORTE -->
+      <div class="boxall" routerLink="/consultas">
+
+        <div class="icon-circle">
+          <i class="fa-solid fa-headset"></i>
         </div>
 
-        <div class="boxall" routerLink="/Centro.info"> 
-            <h3 class="tarjetas_titulo" routerLink="/Centro.info"></h3>
-            <i class="fa-solid fa-book-open"></i>
-            <img src="" class="img2">
-            <div class="texto-encima"> Centro.info </div>
+        <div class="line"></div>
+
+        <div class="card-title">
+          Soporte
         </div>
 
-        <div class="boxall" routerLink="/Actualizaciones"> 
-            <h3 class="tarjetas_titulo" routerLink="/Actualizaciones"></h3>
-            <i class="fa-solid fa-rotate"></i>
-            <img src="" class="img2">
-            <div class="texto-encima"> Actualizaciones </div>
+      </div>
+
+
+      <!-- CENTRO DE INFORMACIÓN -->
+      <div class="boxall" routerLink="/centro-info">
+
+        <div class="icon-circle">
+          <i class="fa-solid fa-book-open"></i>
         </div>
+
+        <div class="line"></div>
+
+        <div class="card-title">
+          Centro de<br>
+          información
+        </div>
+
+      </div>
+
+
+      <!-- ACTUALIZACIONES -->
+      <div class="boxall" routerLink="/actualizaciones">
+
+        <div class="icon-circle">
+          <i class="fa-solid fa-rotate"></i>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="card-title">
+          Actualizaciones
+        </div>
+
+      </div>
+
+
+      <!-- PAÍSES -->
+      <div class="boxall" routerLink="/paises">
+
+        <div class="icon-circle">
+          <i class="fa-solid fa-earth-americas"></i>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="card-title">
+          Países
+        </div>
+
+      </div>
+
+
+      <!-- STAFF -->
+      <div class="boxall" routerLink="/staff">
+
+        <div class="icon-circle">
+          <i class="fa-solid fa-users"></i>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="card-title">
+          Staff
+        </div>
+
+      </div>
 
     </div>
-    
-    <div class="div_grande">
-        <div class="boxall" routerLink="/Paises"> 
-            <h3 class="tarjetas_titulo" routerLink="/Paises"></h3>
-            <i class="fa-solid fa-earth-americas"></i>
-            <img src="" class="img2">
-            <div class="texto-encima"> Paises </div>
-        </div>
 
-        <div class="boxall" routerLink="/Staff"> 
-            <h3 class="tarjetas_titulo" routerLink="/Staff"></h3>
-            <i class="fa-solid fa-users"></i>
-            <img src="" class="img2">
-            <div class="texto-encima"> STAFF </div>
-        </div>
-    </div>
-</section>
-
-
+  </section>
 
 </div>
 

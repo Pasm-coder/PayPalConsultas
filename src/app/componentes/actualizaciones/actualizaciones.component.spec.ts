@@ -1,20 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CentroInfoComponent } from './centro.info.component';
+import { ActualizacionesComponent } from './actualizaciones.component';
 
-describe('CentroInfoComponent', () => {
-
-  
-  let component: CentroInfoComponent;
-  let fixture: ComponentFixture<CentroInfoComponent>;
+describe('ActualizacionesComponent', () => {
+  let component: ActualizacionesComponent;
+  let fixture: ComponentFixture<ActualizacionesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CentroInfoComponent]
+      imports: [ActualizacionesComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CentroInfoComponent);
+    fixture = TestBed.createComponent(ActualizacionesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,8 +20,4 @@ describe('CentroInfoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  
 });
-
-

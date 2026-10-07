@@ -1,0 +1,1129 @@
+/* ==================================
+   CONTENEDOR GENERAL
+================================== */
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.paises-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+
+/* ==================================
+   HEADER DE PAÍSES
+================================== */
+
+.paises-header {
+  width: 100%;
+  background-color: #0638a8;
+  padding: 40px 50px;
+  box-sizing: border-box;
+}
+
+.paises-header-content {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+
+/* ==================================
+   CÍRCULO DEL ÍCONO
+================================== */
+
+.paises-icon {
+  width: 85px;
+  height: 85px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background-color: #f9d45f;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ==================================
+   ÍCONO
+================================== */
+
+.paises-icon i {
+  color: #0638a8;
+  font-size: 42px;
+}
+
+
+/* ==================================
+   TÍTULO
+================================== */
+
+.paises-header h1 {
+  margin: 0;
+
+  color: white;
+
+  font-family: 'Secular One', sans-serif;
+
+  font-size: 38px;
+  font-weight: 700;
+}
+
+
+/* ==================================
+   DESCRIPCIÓN
+================================== */
+
+.paises-header p {
+  margin: 5px 0 0;
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 17px;
+}
+
+
+/* ==================================
+   SECCIÓN DE PAÍSES
+================================== */
+
+.paises-section {
+  width: 100%;
+
+  background-color: #e9edf5;
+
+  padding: 60px 40px;
+
+  box-sizing: border-box;
+
+  min-height: 450px;
+}
+
+
+/* ==================================
+   CONTENEDOR DE BANDERAS
+   MÁXIMO 5 POR FILA
+================================== */
+
+.paises-container {
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(5, 120px);
+
+  justify-content: center;
+
+  align-items: center;
+
+  column-gap: 35px;
+
+  row-gap: 35px;
+
+  padding: 30px 20px;
+
+  box-sizing: border-box;
+}
+
+
+/* ==================================
+   BANDERAS CIRCULARES
+================================== */
+
+.pais-item {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  border: 3px solid #ffffff;
+
+  background-color: #ffffff;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==================================
+   EFECTO HOVER
+================================== */
+
+.pais-item:hover {
+  transform: scale(1.08);
+
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ==================================
+   IMAGEN DE LA BANDERA
+================================== */
+
+.pais-item img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+
+/* ==================================
+   TARJETA DE HORA
+================================== */
+
+.time-card {
+  width: 310px;
+
+  min-height: 125px;
+
+  background-color: #ffffff;
+
+  border: 3px solid #68c7ec;
+
+  border-radius: 12px;
+
+  box-sizing: border-box;
+
+  padding: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==================================
+   BANDERA EN TARJETA
+================================== */
+
+.time-flag {
+  width: 65px;
+  height: 65px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+
+  margin-right: 10px;
+}
+
+
+/* ==================================
+   INFORMACIÓN DE HORA
+================================== */
+
+.time-info {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  flex: 1;
+}
+
+
+/* ==================================
+   NOMBRE DEL PAÍS
+================================== */
+
+.country-name {
+  font-family: Arial, sans-serif;
+
+  font-size: 20px;
+
+  color: #111111;
+
+  white-space: nowrap;
+}
+
+
+/* ==================================
+   CÓDIGO DEL PAÍS
+================================== */
+
+.country-code {
+  display: inline-block;
+
+  font-size: 8px;
+
+  background-color: #f9d45f;
+
+  border-radius: 8px;
+
+  padding: 2px 5px;
+
+  margin-left: 3px;
+
+  vertical-align: middle;
+}
+
+
+/* ==================================
+   HORA
+================================== */
+
+.hour {
+  font-family: Arial, sans-serif;
+
+  color: #000000;
+
+  font-size: 34px;
+
+  line-height: 1;
+
+  margin-top: 4px;
+}
+
+.hour span {
+  font-size: 11px;
+
+  color: #68c7ec;
+
+  font-weight: bold;
+}
+
+
+/* ==================================
+   FECHA
+================================== */
+
+.date {
+  font-family: Arial, sans-serif;
+
+  color: #111111;
+
+  font-size: 9px;
+
+  margin-top: 5px;
+}
+
+
+/* ==================================
+   ESPACIO INFERIOR
+================================== */
+
+.bottom-space {
+  height: 110px;
+
+  background-color: #dddddd;
+}
+
+
+/* ==================================================
+   MODAL
+================================================== */
+
+
+/* ==================================
+   FONDO DEL MODAL
+================================== */
+
+.modal-fondo {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.55);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 9999;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+}
+
+
+/* ==================================
+   VENTANA DEL MODAL
+================================== */
+
+.modal-pais {
+  width: 900px;
+
+  max-width: 95%;
+
+  max-height: 90vh;
+
+  background-color: #bdeff5;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+  animation: aparecer 0.25s ease;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* ==================================
+   ANIMACIÓN
+================================== */
+
+@keyframes aparecer {
+
+  from {
+    opacity: 0;
+
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+
+}
+
+
+/* ==================================
+   ENCABEZADO DEL MODAL
+================================== */
+
+.modal-header {
+  width: 100%;
+
+  background-color: #bdeff5;
+
+  padding: 20px 30px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+}
+
+
+/* ==================================
+   BANDERA + INFORMACIÓN DEL PAÍS
+================================== */
+
+.modal-pais-titulo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  min-width: 0;
+}
+
+
+/* ==================================
+   BANDERA DEL MODAL
+================================== */
+
+.modal-pais-titulo img {
+  width: 58px;
+  height: 58px;
+
+  min-width: 58px;
+
+  max-width: 58px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 2px solid #ffffff;
+
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.15);
+
+  flex-shrink: 0;
+}
+
+
+/* ==================================
+   NOMBRE DEL PAÍS EN MODAL
+================================== */
+
+.modal-pais-titulo h2 {
+  margin: 0;
+
+  color: #12399b;
+
+  font-size: 27px;
+
+  line-height: 1.2;
+
+  font-family: Arial, sans-serif;
+}
+
+
+/* ==================================
+   MONEDA
+================================== */
+
+.modal-pais-titulo p {
+  margin: 4px 0 0;
+
+  color: #222222;
+
+  font-size: 15px;
+
+  font-family: Arial, sans-serif;
+}
+
+
+/* ==================================
+   BOTÓN CERRAR
+================================== */
+
+.cerrar-modal {
+  border: none;
+
+  background-color: #12399b;
+
+  color: #ffffff;
+
+  width: 38px;
+  height: 38px;
+
+  min-width: 38px;
+
+  border-radius: 50%;
+
+  font-size: 25px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition: all 0.2s ease;
+
+  flex-shrink: 0;
+}
+
+
+.cerrar-modal:hover {
+  background-color: #0a2670;
+
+  transform: scale(1.05);
+}
+
+
+/* ==================================
+   CONTENIDO DEL MODAL
+================================== */
+
+.modal-contenido {
+  width: 100%;
+
+  background-color: #bdeff5;
+
+  padding: 5px 30px 25px;
+
+  box-sizing: border-box;
+
+  overflow-y: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+
+  min-height: 0;
+}
+
+
+/* ==================================
+   SCROLL DEL MODAL
+================================== */
+
+.modal-contenido::-webkit-scrollbar {
+  width: 7px;
+}
+
+
+.modal-contenido::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.modal-contenido::-webkit-scrollbar-thumb {
+  background-color: #12399b;
+
+  border-radius: 10px;
+}
+
+
+.modal-contenido::-webkit-scrollbar-thumb:hover {
+  background-color: #0a2670;
+}
+
+
+/* ==================================
+   TARJETAS DE INFORMACIÓN
+================================== */
+
+.info-card {
+  width: 100%;
+
+  background-color: #ffffff;
+
+  border-radius: 13px;
+
+  padding: 16px 18px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==================================
+   TÍTULOS DE TARJETAS
+================================== */
+
+.info-card h3 {
+  color: #12399b;
+
+  font-size: 17px;
+
+  margin: 0 0 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-family: Arial, sans-serif;
+}
+
+
+/* ==================================
+   ÍCONOS DE TARJETAS
+================================== */
+
+.info-card h3 i {
+  background-color: #12399b;
+
+  color: #ffffff;
+
+  width: 31px;
+  height: 31px;
+
+  min-width: 31px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 13px;
+}
+
+
+/* ==================================
+   PÁRRAFOS
+================================== */
+
+.info-card p {
+  margin: 0;
+
+  color: #333333;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* ==================================
+   LISTAS
+================================== */
+
+.info-card ul {
+  margin: 0;
+
+  padding-left: 18px;
+}
+
+
+.info-card li {
+  margin-bottom: 6px;
+
+  color: #333333;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.4;
+}
+
+
+.info-card li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ==================================
+   DATOS
+================================== */
+
+.dato {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 8px 0;
+
+  border-bottom: 1px solid #dddddd;
+}
+
+
+.dato:last-child {
+  border-bottom: none;
+}
+
+
+.dato span {
+  color: #333333;
+
+  font-size: 14px;
+}
+
+
+.dato strong {
+  color: #12399b;
+
+  text-align: right;
+
+  font-size: 14px;
+}
+
+
+/* ==================================
+   SUBTÍTULOS
+================================== */
+
+.info-card h4 {
+  color: #12399b;
+
+  margin: 14px 0 5px;
+
+  font-size: 15px;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+  /* BANDERAS */
+
+  .paises-container {
+    max-width: 600px;
+
+    grid-template-columns: repeat(4, 95px);
+
+    column-gap: 25px;
+
+    row-gap: 30px;
+
+    padding: 40px 20px;
+  }
+
+
+  .pais-item {
+    width: 95px;
+    height: 95px;
+  }
+
+
+  /* MODAL */
+
+  .modal-pais {
+    width: 95%;
+
+    max-height: 90vh;
+  }
+
+
+  .modal-header {
+    padding: 18px 22px;
+  }
+
+
+  .modal-contenido {
+    padding: 5px 22px 22px;
+
+    gap: 13px;
+  }
+
+
+  .modal-pais-titulo img {
+    width: 52px;
+    height: 52px;
+
+    min-width: 52px;
+    max-width: 52px;
+  }
+
+
+  .modal-pais-titulo h2 {
+    font-size: 24px;
+  }
+
+}
+
+
+/* ==================================================
+   CELULAR
+================================================== */
+
+@media (max-width: 600px) {
+
+  /* HEADER */
+
+  .paises-header {
+    padding: 30px 20px;
+  }
+
+
+  .paises-header-content {
+    gap: 18px;
+  }
+
+
+  .paises-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+
+  .paises-icon i {
+    font-size: 30px;
+  }
+
+
+  .paises-header h1 {
+    font-size: 28px;
+  }
+
+
+  .paises-header p {
+    font-size: 14px;
+  }
+
+
+  /* SECCIÓN */
+
+  .paises-section {
+    padding: 40px 20px;
+  }
+
+
+  /* BANDERAS */
+
+  .paises-container {
+    max-width: 350px;
+
+    grid-template-columns: repeat(3, 75px);
+
+    column-gap: 20px;
+
+    row-gap: 25px;
+
+    padding: 30px 10px;
+  }
+
+
+  .pais-item {
+    width: 75px;
+    height: 75px;
+  }
+
+
+  /* TARJETAS DE HORA */
+
+  .time-section {
+    padding: 30px 20px 60px;
+  }
+
+
+  .time-container h2 {
+    margin-bottom: 30px;
+  }
+
+
+  .time-cards {
+    flex-direction: column;
+  }
+
+
+  .time-card {
+    width: 100%;
+
+    max-width: 320px;
+  }
+
+
+  /* MODAL */
+
+  .modal-fondo {
+    padding: 10px;
+  }
+
+
+  .modal-pais {
+    width: 100%;
+
+    max-width: 100%;
+
+    max-height: 94vh;
+
+    border-radius: 15px;
+  }
+
+
+  .modal-header {
+    padding: 15px 16px;
+  }
+
+
+  .modal-pais-titulo {
+    gap: 10px;
+  }
+
+
+  .modal-pais-titulo img {
+    width: 48px;
+    height: 48px;
+
+    min-width: 48px;
+    max-width: 48px;
+  }
+
+
+  .modal-pais-titulo h2 {
+    font-size: 20px;
+  }
+
+
+  .modal-pais-titulo p {
+    font-size: 13px;
+  }
+
+
+  .cerrar-modal {
+    width: 34px;
+    height: 34px;
+
+    min-width: 34px;
+
+    font-size: 22px;
+  }
+
+
+  .modal-contenido {
+    grid-template-columns: 1fr;
+
+    padding: 5px 16px 20px;
+
+    gap: 12px;
+  }
+
+
+  .info-card {
+    padding: 14px 15px;
+
+    border-radius: 12px;
+  }
+
+
+  .info-card h3 {
+    font-size: 16px;
+
+    margin-bottom: 9px;
+  }
+
+
+  .info-card h3 i {
+    width: 29px;
+    height: 29px;
+
+    min-width: 29px;
+
+    font-size: 12px;
+  }
+
+
+  .info-card p,
+  .info-card li {
+    font-size: 13px;
+  }
+
+}
+
+
+/* ==================================================
+   CELULARES MUY PEQUEÑOS
+================================================== */
+
+@media (max-width: 400px) {
+
+  /* BANDERAS */
+
+  .paises-container {
+    grid-template-columns: repeat(3, 65px);
+
+    column-gap: 12px;
+
+    row-gap: 20px;
+
+    padding: 25px 5px;
+  }
+
+
+  .pais-item {
+    width: 65px;
+    height: 65px;
+  }
+
+
+  /* MODAL */
+
+  .modal-pais {
+    max-height: 95vh;
+  }
+
+
+  .modal-header {
+    padding: 12px;
+  }
+
+
+  .modal-pais-titulo {
+    gap: 8px;
+  }
+
+
+  .modal-pais-titulo img {
+    width: 43px;
+    height: 43px;
+
+    min-width: 43px;
+    max-width: 43px;
+  }
+
+
+  .modal-pais-titulo h2 {
+    font-size: 18px;
+  }
+
+
+  .modal-pais-titulo p {
+    font-size: 12px;
+  }
+
+
+  .cerrar-modal {
+    width: 32px;
+    height: 32px;
+
+    min-width: 32px;
+
+    font-size: 20px;
+  }
+
+
+  .modal-contenido {
+    padding: 5px 12px 15px;
+
+    gap: 10px;
+  }
+
+
+  .info-card {
+    padding: 12px;
+  }
+
+
+  .info-card h3 {
+    font-size: 15px;
+  }
+
+
+  .info-card p,
+  .info-card li {
+    font-size: 12px;
+  }
+
+}

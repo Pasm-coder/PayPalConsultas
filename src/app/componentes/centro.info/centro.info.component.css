@@ -1,3 +1,78 @@
+.info-header {
+  width: 100%;
+  background-color: #0638a8;
+
+  padding: 40px 50px;
+
+  box-sizing: border-box;
+}
+
+
+.info-header-content {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+
+/* Círculo amarillo */
+
+.info-icon {
+  width: 85px;
+  height: 85px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background-color: #f9d45f;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.info-icon i {
+  color: #0638a8;
+
+  font-size: 40px;
+}
+
+
+/* Título */
+
+.info-header h1 {
+  margin: 0;
+
+  color: white;
+
+  font-family: 'Secular One', sans-serif;
+
+  font-size: 38px;
+
+  font-weight: 700;
+}
+
+
+/* Texto */
+
+.info-header p {
+  margin: 5px 0 0;
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 17px;
+}
+
 .contenedor {
   background-color: #f1f3f8;
   min-height: 100vh;
@@ -56,6 +131,7 @@
 .seccion-links {
   max-width: 825px;
   margin: auto;
+  margin-top: 50px;
 
   background-color: white;
 
@@ -147,4 +223,1554 @@
 .link-item:hover {
   background-color: #ffe48b;
   transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   SECCIÓN NÚMEROS
+========================================= */
+
+.numeros-section {
+
+  width: 100%;
+
+  background-color: #ffffff;
+
+  border: 3px solid #68c7ec;
+
+  border-radius: 25px;
+
+  padding: 30px 55px 45px;
+
+  box-sizing: border-box;
+
+}
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.numeros-header {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 40px;
+
+  margin-bottom: 35px;
+
+}
+
+
+.numeros-icon {
+
+  width: 95px;
+
+  height: 80px;
+
+  border: 3px solid #68c7ec;
+
+  border-radius: 22px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-shrink: 0;
+
+}
+
+
+.numeros-icon i {
+
+  font-size: 45px;
+
+  color: #123da0;
+
+}
+
+
+.numeros-header h1 {
+
+  margin: 0;
+
+  color: #123da0;
+
+  font-family: 'Secular One', sans-serif;
+
+  font-size: 40px;
+
+}
+
+
+.numeros-header p {
+
+  margin: 2px 0 0;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 22px;
+
+  color: #333;
+
+}
+
+
+/* =========================================
+   LISTA
+========================================= */
+
+.numeros-lista {
+
+  width: 90%;
+
+  margin-left: auto;
+
+}
+
+
+/* =========================================
+   CADA SECCIÓN
+========================================= */
+
+.grupo-numeros {
+
+  margin-bottom: 18px;
+
+}
+
+
+/* =========================================
+   BOTÓN / TÍTULO
+========================================= */
+
+.grupo-numeros summary {
+
+  list-style: none;
+
+  cursor: pointer;
+
+  background-color: #fff0b8;
+
+  border: 2px solid #f5c32c;
+
+  border-radius: 15px;
+
+  min-height: 65px;
+
+  padding: 0 25px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: #123da0;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 21px;
+
+  font-weight: bold;
+
+  transition: 0.2s ease;
+
+}
+
+
+/* Quitar flecha predeterminada */
+
+.grupo-numeros summary::-webkit-details-marker {
+
+  display: none;
+
+}
+
+
+.grupo-numeros summary span {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+}
+
+
+.grupo-numeros summary span i {
+
+  font-size: 25px;
+
+}
+
+
+/* =========================================
+   FLECHA
+========================================= */
+
+.flecha {
+
+  transition: transform 0.3s ease;
+
+}
+
+
+.grupo-numeros[open] .flecha {
+
+  transform: rotate(180deg);
+
+}
+
+
+/* =========================================
+   EFECTO AL PASAR EL MOUSE
+========================================= */
+
+.grupo-numeros summary:hover {
+
+  background-color: #f9d45f;
+
+}
+
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.contenido-numeros {
+
+  background-color: #f3f5fa;
+
+  border-left: 4px solid #123da0;
+
+  border-right: 4px solid #123da0;
+
+  border-bottom: 4px solid #123da0;
+
+  border-radius: 0 0 12px 12px;
+
+  padding: 15px 20px;
+
+}
+
+
+/* =========================================
+   PAÍS + NÚMERO
+========================================= */
+
+.numero-pais {
+
+  min-height: 65px;
+
+  background-color: white;
+
+  border-radius: 10px;
+
+  margin-bottom: 10px;
+
+  padding: 10px 20px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+
+}
+
+
+.numero-pais:last-child {
+
+  margin-bottom: 0;
+
+}
+
+
+/* =========================================
+   INFORMACIÓN DEL PAÍS
+========================================= */
+
+.pais-info {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+}
+
+
+.pais-info strong {
+
+  color: #123da0;
+
+  font-size: 18px;
+
+}
+
+
+.pais-info span {
+
+  color: #666;
+
+  font-size: 13px;
+
+}
+
+
+/* =========================================
+   NÚMERO TELEFÓNICO
+========================================= */
+
+.numero-pais a {
+
+  color: #123da0;
+
+  background-color: #fff0b8;
+
+  border: 2px solid #f5c32c;
+
+  border-radius: 8px;
+
+  padding: 8px 15px;
+
+  text-decoration: none;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  white-space: nowrap;
+
+}
+
+
+.numero-pais a:hover {
+
+  background-color: #f9d45f;
+
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 700px) {
+
+  .numeros-section {
+
+    padding: 25px 20px 35px;
+
+  }
+
+
+  .numeros-header {
+
+    gap: 20px;
+
+  }
+
+
+  .numeros-icon {
+
+    width: 70px;
+
+    height: 65px;
+
+  }
+
+
+  .numeros-icon i {
+
+    font-size: 32px;
+
+  }
+
+
+  .numeros-header h1 {
+
+    font-size: 30px;
+
+  }
+
+
+  .numeros-header p {
+
+    font-size: 16px;
+
+  }
+
+
+  .numeros-lista {
+
+    width: 100%;
+
+  }
+
+
+  .numero-pais {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+  }
+
+
+  .numero-pais a {
+
+    width: 100%;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+   PÁGINA
+========================================= */
+
+.tiempos-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: #eef0f4;
+}
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.tiempos-header {
+  width: 100%;
+
+  background-color: #0638a8;
+
+  padding: 40px 50px;
+
+  box-sizing: border-box;
+}
+
+
+.tiempos-header-content {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+
+/* =========================================
+   ÍCONO
+========================================= */
+
+.tiempos-icon {
+  width: 85px;
+  height: 85px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background-color: #f9d45f;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.tiempos-icon i {
+  color: #0638a8;
+
+  font-size: 40px;
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.tiempos-header h1 {
+  margin: 0;
+
+  color: white;
+
+  font-family: 'Secular One', sans-serif;
+
+  font-size: 38px;
+
+  font-weight: 700;
+}
+
+
+.tiempos-header p {
+  margin: 5px 0 0;
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 17px;
+}
+
+
+/* =========================================
+   SECCIÓN DE TABLA
+========================================= */
+
+.tabla-section {
+  width: 100%;
+
+  padding: 45px 25px 90px;
+
+  box-sizing: border-box;
+}
+
+
+.tabla-container {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  background-color: white;
+
+  border-radius: 15px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  overflow-x: auto;
+}
+
+
+/* =========================================
+   TABLA
+========================================= */
+
+.tabla-tiempos {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-family: Arial, sans-serif;
+}
+
+
+/* =========================================
+   ENCABEZADO DE TABLA
+========================================= */
+
+.tabla-tiempos thead th {
+  background-color: #123da0;
+
+  color: white;
+
+  padding: 18px 20px;
+
+  text-align: left;
+
+  font-size: 17px;
+
+  font-weight: bold;
+}
+
+
+.tabla-tiempos thead th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+
+.tabla-tiempos thead th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+
+/* =========================================
+   FILAS
+========================================= */
+
+.tabla-tiempos tbody tr {
+
+  border-bottom: 1px solid #dce2ec;
+
+  transition: background-color 0.2s ease;
+
+}
+
+
+.tabla-tiempos tbody tr:last-child {
+  border-bottom: none;
+}
+
+
+.tabla-tiempos tbody tr:hover {
+
+  background-color: #fff8d9;
+
+}
+
+
+/* =========================================
+   CELDAS
+========================================= */
+
+.tabla-tiempos td {
+
+  padding: 16px 20px;
+
+  color: #333;
+
+  font-size: 15px;
+
+  line-height: 1.4;
+
+}
+
+
+/* PROCESO */
+
+.tabla-tiempos td:first-child {
+
+  width: 65%;
+
+  font-weight: 500;
+
+}
+
+
+/* TIEMPO */
+
+.tabla-tiempos td:last-child {
+
+  width: 35%;
+
+  color: #123da0;
+
+  font-weight: bold;
+
+}
+
+
+/* =========================================
+   CELDAS ALTERNADAS
+========================================= */
+
+.tabla-tiempos tbody tr:nth-child(even) {
+
+  background-color: #f7f9fc;
+
+}
+
+
+.tabla-tiempos tbody tr:nth-child(even):hover {
+
+  background-color: #fff8d9;
+
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 700px) {
+
+  .tiempos-header {
+
+    padding: 30px 20px;
+
+  }
+
+
+  .tiempos-header-content {
+
+    gap: 18px;
+
+  }
+
+
+  .tiempos-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+  }
+
+
+  .tiempos-icon i {
+
+    font-size: 30px;
+
+  }
+
+
+  .tiempos-header h1 {
+
+    font-size: 28px;
+
+  }
+
+
+  .tiempos-header p {
+
+    font-size: 14px;
+
+  }
+
+
+  .tabla-section {
+
+    padding: 25px 15px 60px;
+
+  }
+
+
+  .tabla-container {
+
+    padding: 10px;
+
+  }
+
+
+  .tabla-tiempos {
+
+    min-width: 650px;
+
+  }
+
+}
+
+
+
+
+
+
+/* =========================================
+   PÁGINA
+========================================= */
+
+.decisiones-page {
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  background-color: #eef0f4;
+
+}
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.decisiones-header {
+
+  width: 100%;
+
+  background-color: #0638a8;
+
+  padding: 40px 50px;
+
+  box-sizing: border-box;
+
+}
+
+
+.decisiones-header-content {
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+}
+
+
+.decisiones-icon {
+
+  width: 85px;
+
+  height: 85px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background-color: #f9d45f;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+.decisiones-icon i {
+
+  color: #0638a8;
+
+  font-size: 40px;
+
+}
+
+
+.decisiones-header h1 {
+
+  margin: 0;
+
+  color: white;
+
+  font-family: 'Secular One', sans-serif;
+
+  font-size: 38px;
+
+}
+
+
+.decisiones-header p {
+
+  margin: 5px 0 0;
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 17px;
+
+}
+
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+.casos-section,
+.acciones-section,
+.vocabulario-section {
+
+  max-width: 1050px;
+
+  margin: 0 auto;
+
+  padding: 40px 25px;
+
+  box-sizing: border-box;
+
+}
+
+
+/* =========================================
+   TÍTULOS
+========================================= */
+
+.section-title {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 25px;
+
+}
+
+
+.section-title i {
+
+  color: #123da0;
+
+  font-size: 25px;
+
+}
+
+
+.section-title h2 {
+
+  margin: 0;
+
+  color: #123da0;
+
+  font-family: 'Secular One', sans-serif;
+
+  font-size: 28px;
+
+}
+
+
+/* =========================================
+   TABLA
+========================================= */
+
+.tabla-scroll {
+
+  width: 100%;
+
+  overflow-x: auto;
+
+  background-color: white;
+
+  border-radius: 15px;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+}
+
+
+.tabla-casos {
+
+  width: 100%;
+
+  min-width: 1100px;
+
+  border-collapse: collapse;
+
+  font-family: Arial, sans-serif;
+
+}
+
+
+.tabla-casos th {
+
+  background-color: #123da0;
+
+  color: white;
+
+  padding: 14px 10px;
+
+  font-size: 14px;
+
+  text-align: center;
+
+}
+
+
+.tabla-casos td {
+
+  padding: 15px 10px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #ddd;
+
+  font-size: 14px;
+
+}
+
+
+.tabla-casos tbody tr:nth-child(even) {
+
+  background-color: #f5f7fb;
+
+}
+
+
+.titulo-fila {
+
+  background-color: #f9d45f !important;
+
+  color: #123da0;
+
+  font-weight: bold;
+
+}
+
+
+/* =========================================
+   CASOS
+========================================= */
+
+.lista-casos {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+}
+
+
+.caso {
+
+  background-color: white;
+
+  border-radius: 12px;
+
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+
+  overflow: hidden;
+
+}
+
+
+.caso summary {
+
+  min-height: 70px;
+
+  padding: 15px 22px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  cursor: pointer;
+
+  list-style: none;
+
+  color: #123da0;
+
+}
+
+
+.caso summary::-webkit-details-marker {
+
+  display: none;
+
+}
+
+
+.caso summary > span {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+}
+
+
+.caso summary strong {
+
+  font-size: 18px;
+
+}
+
+
+.caso summary small {
+
+  color: #666;
+
+  font-size: 13px;
+
+}
+
+
+.caso summary > i {
+
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
+
+}
+
+
+.caso[open] summary > i {
+
+  transform: rotate(180deg);
+
+}
+
+
+.caso[open] summary {
+
+  background-color: #fff0b8;
+
+}
+
+
+/* =========================================
+   CONTENIDO DEL CASO
+========================================= */
+
+.caso-contenido {
+
+  padding: 20px 25px;
+
+  border-top: 1px solid #eee;
+
+  color: #333;
+
+  font-family: Arial, sans-serif;
+
+  line-height: 1.5;
+
+}
+
+
+.caso-contenido p {
+
+  margin-top: 0;
+
+}
+
+
+.caso-contenido ul,
+.caso-contenido ol {
+
+  padding-left: 25px;
+
+}
+
+
+.caso-contenido li {
+
+  margin-bottom: 8px;
+
+}
+
+
+/* =========================================
+   NOTAS
+========================================= */
+
+.nota-verde,
+.nota-amarilla,
+.nota-roja,
+.nota-gris {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding: 14px 16px;
+
+  border-radius: 10px;
+
+  margin-top: 15px;
+
+}
+
+
+.nota-verde {
+
+  background-color: #e6f7ed;
+
+  color: #146c43;
+
+}
+
+
+.nota-amarilla {
+
+  background-color: #fff4cc;
+
+  color: #765800;
+
+}
+
+
+.nota-roja {
+
+  background-color: #fde8e8;
+
+  color: #a52828;
+
+}
+
+
+.nota-gris {
+
+  background-color: #eef1f5;
+
+  color: #555;
+
+}
+
+
+.nota-verde i,
+.nota-amarilla i,
+.nota-roja i,
+.nota-gris i {
+
+  margin-top: 3px;
+
+}
+
+
+/* =========================================
+   VOCABULARIO
+========================================= */
+
+.vocabulario-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+}
+
+
+.termino {
+
+  background-color: white;
+
+  border-radius: 12px;
+
+  padding: 20px;
+
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+
+}
+
+
+.termino-titulo {
+
+  display: inline-block;
+
+  background-color: #f9d45f;
+
+  color: #123da0;
+
+  border-radius: 8px;
+
+  padding: 8px 14px;
+
+  font-weight: bold;
+
+  margin-bottom: 10px;
+
+}
+
+
+.termino p {
+
+  margin: 5px 0 0;
+
+  color: #444;
+
+  line-height: 1.5;
+
+}
+
+
+/* =========================================
+   NOTA IMPORTANTE
+========================================= */
+
+.nota-importante {
+
+  margin-top: 25px;
+
+  padding: 20px;
+
+  background-color: #123da0;
+
+  color: white;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 18px;
+
+}
+
+
+.nota-icono {
+
+  width: 45px;
+
+  height: 45px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background-color: #f9d45f;
+
+  color: #123da0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+
+.nota-icono i {
+
+  font-size: 20px;
+
+}
+
+
+.nota-importante h3 {
+
+  margin: 0 0 5px;
+
+  font-size: 20px;
+
+}
+
+
+.nota-importante p {
+
+  margin: 0;
+
+  line-height: 1.5;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .decisiones-header {
+
+    padding: 30px 20px;
+
+  }
+
+
+  .decisiones-header-content {
+
+    gap: 18px;
+
+  }
+
+
+  .decisiones-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+  }
+
+
+  .decisiones-icon i {
+
+    font-size: 30px;
+
+  }
+
+
+  .decisiones-header h1 {
+
+    font-size: 28px;
+
+  }
+
+
+  .decisiones-header p {
+
+    font-size: 14px;
+
+  }
+
+
+  .casos-section,
+  .acciones-section,
+  .vocabulario-section {
+
+    padding: 30px 15px;
+
+  }
+
+
+  .vocabulario-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .nota-importante {
+
+    flex-direction: column;
+
+  }
+
+}
+
+
+
+
+
+
+
+
+.alfabeto-section {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+.alfabeto-section h2 {
+  color: #123da0;
+  font-family: 'Secular One', sans-serif;
+  font-size: 28px;
+  margin: 0 0 25px;
+}
+
+.alfabeto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.letra {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 12px 15px;
+
+  background-color: #f7f9fc;
+
+  border: 2px solid #68c7ec;
+
+  border-radius: 10px;
+}
+
+.letra strong {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #123da0;
+
+  color: white;
+
+  border-radius: 50%;
+
+  font-size: 18px;
+}
+
+.letra span {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.letra:hover {
+  background-color: #fff0b8;
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+
+  .alfabeto-grid {
+    grid-template-columns: 1fr;
+  }
+
 }
