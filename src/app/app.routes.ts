@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
+
 import { HomeComponent } from './componentes/home/home.component';
 import { ConsultasComponent } from './componentes/consultas/consultas.component';
 import { CentroInfoComponent } from './componentes/centro.info/centro.info.component';
@@ -18,7 +19,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
