@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal Latam - Decision Tree Probing Questions</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .sidebar {
+            width: 500px;
+            background-color: #0070E0;
+            color: white;
+            padding: 15px;
+            height: 100%;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            display: flex; 
+            flex-direction: column; 
+            overflow-y: hidden; 
+        }
+
+        .sidebar-logo {
+            display: block;
+            max-width: 180px;
+            height: auto;
+            margin: 0 auto 10px; 
+        }
+        
+        .sidebar .version-info {
+            text-align: center;
+            font-size: 0.85em;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            text-align: center;
+            border-bottom: 1px solid #555;
+            padding-bottom: 10px;
+            flex-shrink: 0; 
+        }
+
+        .category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            overflow-y: auto; 
+            flex-grow: 1; 
+        }
+
+        .category-list li {
+            padding: 12px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #444;
+            transition: background-color 0.2s ease-in-out;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .category-list li:hover {
+            background-color: #555;
+        }
+
+        .category-list li.active {
+            background-color: #007bff;
+            color: white;
+        }
+         .category-list li.hovered-temp {
+            background-color: #4a90e2;
+        }
+
+        /* --- INICIO: ESTILOS PARA EL BOTÓN Y EL MODAL DEL CHANGELOG --- */
+        .changelog-button-container {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #555;
+            flex-shrink: 0;
+        }
+        
+        #openChangelogBtn {
+            width: 100%;
+            padding: 12px;
+            background-color: #005bb5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #openChangelogBtn:hover {
+            background-color: #004a92;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            display: none; /* Oculto por defecto */
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex; /* Visible cuando tiene la clase 'active' */
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            color: #333;
+            padding: 25px 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 550px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 2.5em;
+            font-weight: 300;
+            line-height: 1;
+            cursor: pointer;
+            color: #888;
+            padding: 0;
+        }
+        .close-button:hover {
+            color: #333;
+        }
+
+        .modal-body {
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .changelog-entry {
+            margin-bottom: 15px;
+        }
+        .changelog-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .changelog-entry ul {
+            padding-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 0;
+            color: #555;
+        }
+
+        .changelog-entry li {
+            margin-bottom: 5px;
+        }
+        /* --- FIN: ESTILOS PARA EL MODAL --- */
+
+
+        .details-panel {
+            flex-grow: 1;
+            padding: 25px;
+            overflow-y: auto;
+            height: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        .details-panel .placeholder {
+            color: #777;
+            font-style: italic;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .scenario {
+            border: 1px solid #e0e0e0;
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .scenario h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.4;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            font-weight: normal;
+        }
+
+        .question-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .question-container input[type="checkbox"] {
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+        
+        .question-container label {
+            cursor: pointer;
+            flex-grow: 1;
+        }
+        
+        .question-container h3 {
+             border-bottom: 1px solid #ddd;
+             margin-bottom: 12px;
+        }
+         .question-container h3 label {
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+         }
+
+        .question-container.sub-question label {
+            font-weight: bold;
+            color: #3F51B5;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            height: 22px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #28a745;
+            border-radius: 5px;
+            transition: width 0.4s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .scenario .education-list {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .scenario .education-point {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        hr.scenario-separator {
+            margin: 30px 0;
+            border: 0;
+            border-top: 2px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <img src="data:image/png;base64,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" alt="Logo PayPal" class="sidebar-logo">
+
+        <div class="version-info">
+            Versión V1.1<br>
+            Actualizado: 08/05/2025
+        </div>
+        
+        <h2>Preguntas de Sondeo</h2>
+        <ul id="categoryList" class="category-list"></ul>
+
+        <!-- INICIO: Botón para abrir el Changelog -->
+        <div class="changelog-button-container">
+            <button id="openChangelogBtn">Ver Historial de Cambios</button>
+        </div>
+        <!-- FIN: Botón para abrir el Changelog -->
+    </div>
+
+    <div id="detailsPanel" class="details-panel">
+        <div class="placeholder">Pasa el ratón o haz clic en una categoría para ver los detalles.</div>
+    </div>
+
+    <!-- INICIO: ESTRUCTURA DEL MODAL DEL CHANGELOG -->
+    <div id="changelogModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Historial de Cambios</h2>
+                <button id="closeChangelogBtn" class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- 
+                ==================================================================
+                == INSTRUCCIONES PARA EDITAR EL HISTORIAL DE CAMBIOS (CHANGELOG)  ==
+                ==================================================================
+                Para agregar una nueva entrada, simplemente copia y pega el 
+                bloque <div class="changelog-entry">...</div> completo, 
+                y ponlo encima de la entrada anterior. Luego, actualiza la 
+                versión, fecha y la lista de cambios.
+                ==================================================================
+                -->
+
+                <div class="changelog-entry">
+                    <strong>Version 1.1 (08/05/2025):</strong>
+                    <ul>
+                            <li>Se añadió el driver Pay in 4/Pay Monthly.</li>
+                            <li>Se añadió el driver Orden y Autorización.</li>
+                            <li>Se agregó la sección de "Historial de Cambios" (Changelog) en la barra lateral.</li>
+                            <li>Se añadió el número de versión y la fecha de última actualización debajo del logo.</li>
+                    </ul>
+                </div>
+
+                <!-- Aquí irían las futuras entradas, por ejemplo V1.2, V1.3, etc. -->
+
+            </div>
+        </div>
+    </div>
+    <!-- FIN: ESTRUCTURA DEL MODAL -->
+
+    <script>
+        const csvData = `Razon de Contacto,Tipo,Preguntas primer nivel,Preguntas segundo nivel,Pregunta Tercer Nivel,Preguntas Cuarto Nivel,Preguntas Quinto Nivel,Preguntas Sexto Nivel,Preguntas Septimo Nivel,Educacion 1,Educacion 2,Educacion 3,Educacion 4,Educacion 5,Educacion 6,Educacion 7,Educacion 8,Educacion 9
+Retiro de Fondos,Retiro a cuenta bancaria local,¿En qué fecha realizó el retiro de fondos y por cuánto fue el valor?,¿Es usted el titular de la cuenta bancaria a donde transfirió los fondos?,¿Confirmó que todos los datos entre su cuenta de PayPal y cuenta bancaria sean los mismos?,,,,,"El tiempo de retiro varía según el país, por eso siempre se debe indicar un rango: la fecha estimada de acreditación (cuando deberían llegar los fondos) y la fecha para abrir un rastreo (si aún no han llegado). Ejemplo: En República Dominicana, el retiro toma de 2 a 5 días hábiles. Si al 5.º día hábil no llega el dinero, se puede abrir un rastreo de fondos.",Solo se puede abrir un rastreo de fondos después de 5 días hábiles desde la fecha del retiro.,El rastreo puede tardar entre 5 días hábiles y 10 días calendario en resolverse.,"Para evitar rechazos los datos de la cuenta bancaria y de PayPal deben coincidir completamente: Nombre, dirección, número de cuenta y documento de identidad.","Si el retiro esta denied, debe revisarse directamente con el banco, ya que son ellos quienes lo deniegan.","Si el retiro es cancelado por datos incorrectos, revisión bancaria, OFAC o sospecha de fraude, el reverso puede demorar hasta 15 días calendario en reflejarse en PayPal.","Si la cuenta bancaria está cancelada, el banco es responsable de reversar el dinero a PayPal o abonarlo por otro método. Se puede abrir un rastreo de fondos después de 5 días hábiles desde la fecha del retiro.","Si con el número de referencia el banco no encuentra el retiro, se puede escalar con SA como corrección por retiro no recibido, adjuntando estados de cuenta.",
+Retiro de Fondos,Retiro a cuenta bancaria local,¿Es su primer retiro de fondos?,¿Se ha contactado con usted el intermediario de su país?,¿Ya envío la documentación requerida por parte del intermediario para completar su retiro?,,,,,"Si es el primer retiro y el país tiene intermediario, el cliente debe estar atento al contacto del intermediario para completar una verificación necesaria.","Si fue cancelado por el intermediario, el plazo del reverso también es de hasta 15 días calendario.", , , , , , ,
+Retiro de Fondos,Retiro a cuenta bancaria de USA,¿En qué fecha realizó el retiro de fondos y por cuánto fue el valor?,¿Es usted el titular de la cuenta bancaria a donde transfirió los fondos?,¿Confirmó que todos los datos entre su cuenta de PayPal y cuenta bancaria sean los mismos?,¿Le han realizado algún rastreo de fondos en cuanto a este movimiento?,¿El número de referencia del rastreo no le permitió al banco encontrar el retiro?,,,Solo se puede abrir un rastreo de fondos después de 5 días hábiles desde la fecha del retiro.,El rastreo puede tardar entre 5 días hábiles y 10 días calendario en resolverse.,"Para evitar rechazos los datos de la cuenta bancaria y de PayPal deben coincidir completamente: Nombre, dirección, número de cuenta y documento de identidad.","Si el retiro esta denied, debe revisarse directamente con el banco, ya que son ellos quienes lo deniegan.","Si el retiro es cancelado por datos incorrectos, revisión bancaria, OFAC o sospecha de fraude, el reverso puede demorar hasta 15 días calendario en reflejarse en PayPal.","Si la cuenta bancaria está cancelada, el banco es responsable de reversar el dinero a PayPal o abonarlo por otro método. Se puede abrir un rastreo de fondos después de 5 días hábiles desde la fecha del retiro.","Si con el número de referencia el banco no encuentra el retiro, se puede escalar con SA como corrección por retiro no recibido, adjuntando estados de cuenta.",,
+Retiro de Fondos,Retiro a cuenta bancaria de USA,¿Es usted residente legal en Estados Unidos?,¿Le han solicitado completar alguna información legal?,,,,,,"En algunos casos, al agregar una cuenta bancaria y realizar un retiro, el cliente puede ser requerido a proporcionar información legal conforme a FATCA. Deberá completar un formulario confirmando sus datos e indicar si es ciudadano estadounidense o no.",,,,,,,,
+Retiro de Fondos,Retiro a cuenta bancaria de USA,¿Agregó un banco estadounidense que opera de forma virtual o que tiene sucursal fisica en su país?,¿Cual es el nombre del banco de USA que usó?,,,,,,"Cuando un cliente intenta agregar una cuenta bancaria virtual de EE. UU. (sin sucursal física), su aceptación depende del sistema de riesgo, ya que PayPal no siempre es compatible con bancos virtuales.",,,,,,,,
+Retiro de Fondos,Wire Transfer,¿En qué fecha realizó el retiro de fondos y por cuánto fue el valor?,¿Es usted el titular de la cuenta bancaria a donde transfirió los fondos?,¿Confirmó que todos los datos entre su cuenta de PayPal y cuenta bancaria sean los mismos?,¿Le han realizado algún rastreo de fondos en cuanto a este movimiento?,¿El número de referencia del rastreo no le permitió al banco encontrar el retiro?,,,"El tiempo de retiro varía según el país, por eso siempre se debe indicar un rango: la fecha estimada de acreditación (cuando deberían llegar los fondos) y la fecha para abrir un rastreo (si aún no han llegado). Ejemplo: En República Dominicana, el retiro toma de 2 a 5 días hábiles. Si al 5.º día hábil no llega el dinero, se puede abrir un rastreo de fondos.",Solo se puede abrir un rastreo de fondos después de 5 días hábiles desde la fecha del retiro.,El rastreo puede tardar entre 5 días hábiles y 10 días calendario en resolverse.,,,,,,
+Retiro de Fondos,Wire Transfer,¿Es su primer retiro de fondos?,¿Cual es la divisa en la que agregó su cuenta bancaria?,¿Se cobro alguna comisión adicional?, , ,,,"Los retiros por Wire Transfer implican comisiones de PayPal, el intermediario y el banco.","Solo en el primer contacto del cliente por este motivo, se puede generar un CT de cortesía por la comisión del intermediario (Consultar escenarios CT)","Si la cuenta bancaria se agrega en USD, el retiro será Wire Transfer; si se agrega en moneda local, se procesará como un retiro normal.",,,,,,
+Hold,Hold,¿El pago es personal de un amigo o familiar?,¿Hay algun intercambio de por medio o fue un reembolso de algún comercio?,¿Ha recibido pagos por este motivo con anterioridad?,¿Desde qué país le enviaron este pago?,¿Le han realizado alguna liberación por cortesía con anterioridad?, ,,"Solo EE. UU. puede enviar pagos personales a otros países. LATAM solo puede recibir, no enviar.","México, Bolivia, Paraguay y Argentina no pueden recibir pagos personales, ni siquiera si se envían desde EE. UU.",Se pueden liberar pagos personales de entre $0.01 y $200 USD por unica vez. Consulta el SharePoint de PayPal LATAM para ver los requisitos.,"Según el monto, la cuenta del receptor o ambas deben estar verificadas (teléfono y método de pago confirmado).","Xoom es una alternativa para enviar pagos personales en LATAM, pero se debe verificar su disponibilidad directamente con ellos.","Si se detecta que el cliente recibe pagos por actividades o servicios no permitidos, la transacción no será liberada, se generará el reporte correspondiente con el SA y se educa al cliente.","Los reembolsos enviados como pago se tratarán como pagos personales. En cambio, los pagos de nómina se consideran pagos por servicios prestados.","Si el vendedor no quiere esperar los 21 días de retención, puede solicitar un reembolso de la transacción.",
+Hold,Hold,¿El pago es por la venta de algún servicio o producto?,¿Exactamente qué fue lo que vendió?,¿Tiene algun comprobante de entrega del producto o servicio?,¿Conoce los criterios de graduación (RA0) /su umbral (RAX) actualmente asignado?,¿Ha agregado información de rastreo como el número de tracking o confirmación de pedido procesado?,¿Le han realizado alguna liberación por cortesía con anterioridad?,,"Para liberar el pago, el comprador puede confirmar la recepción del artículo/servicio en los detalles de la transacción después de 48 horas de haber realizado el pago, siempre que la transacción sea elegible (verificar en Spark).","El vendedor puede hacer que el dinero se libere automáticamente sin confirmación del comprador: si es un artículo, debe añadir el número de seguimiento y, tras marcarse como entregado por la transportadora, el pago se libera en 24 horas; si es un servicio, debe marcarlo como ""pedido procesado"" y el dinero se libera en 7 días.","Se pueden liberar pagos usando cortesías: 10 por montos hasta $100 USD y 2 entre $100.01 y $500 USD, siempre que el cliente cumpla con los requisitos y sea en un solo contacto.","Para cualquier liberación, el receptor debe estar verificado (teléfono y método de pago confirmados).","Pagos retenidos mayores a $500 USD o solicitudes de aumento de umbral (RAX) deben escalarse vía ticket URP, usando el formato y enviándolo por Slack al SA.","Errores relacionados con pagos retenidos más de 21 días, pasos de graduación u otros, pueden ser reportados al SA para su escalamiento.","Si se detecta que el cliente recibe pagos por actividades o servicios no permitidos, la transacción no será liberada, se generará el reporte correspondiente con el SA y se educa al cliente.","Si el vendedor no quiere esperar los 21 días de retención, puede solicitar un reembolso de la transacción.",Bolivia y Paraguay no puede recibir pagos comerciales ni personales.
+Reembolso y Reverso,Reembolso y Reverso,¿En qué fecha le realizaron su reembolso y por cuánto fue el valor?,¿Qué método de pago utilizó?,¿Ha validado en los movimientos de su tarjeta/cuenta bancaria que no haya ingresado el dinero de vuelta?,¿Le han realizado algún rastreo de fondos en cuanto a este movimiento?,¿El número de referencia del rastreo no le permitió al banco encontrar el reembolso?,,,"Reembolsos a tarjeta tardan hasta 30 días calendario, a cuenta bancaria 5 días hábiles, y a saldo PayPal 24 horas.","Si el reembolso no se refleja tras 30 días, se puede abrir un rastreo de fondos.","Si con el número de referencia el banco no encuentra el reembolso, se puede escalar con SA como corrección por reembolso no recibido, adjuntando estados de cuenta.","Si la tarjeta está cancelada, el banco debe abonar el reembolso a otro método o devolverlo al saldo PayPal.","En el CC transaction log, si aparece solo “Credit”, fue un reembolso (tarda 30 días). Si dice “Credit” + “Reverse”, es una reserva de fondos (se libera en 10 días hábiles).","La reserva de dinero ocurre cuando el banco separa fondos, pero no los envía aún a PayPal. Si el pago se cancela, el banco debe liberarlos en hasta 10 días hábiles. Se puede dar el código de autorización del CC transaction log para que el cliente consulte con su banco.",,,
+Reembolso y Reverso,Reembolso y Reverso,"¿Se le hizo el descuento en su banco, pero no ve el movimiento en PayPal? ",¿En qué estado sale la transacción desde su banco?, ¿El código de autorización del rastreo no le permitió al banco encontrar el reembolso?, , ,,,"Si el cobro aparece en la tarjeta/cuenta bancaria pero no en PayPal, fue una reserva fallida por error de procesamiento; el cliente debe pedir al banco que libere los fondos.","Si en el banco el cobro figura como pendiente, pero no hay transacción en PayPal, el cliente debe contactar al banco para que completen o liberen el dinero.","Si la transacción solo aparece en el CC transaction log, pero no en el transaction log, probablemente será reversada en 72 horas hábiles. Luego, el cliente debe esperar hasta 10 días hábiles o solicitar al banco la liberación con el código de autorización.","Si se trata de una reserva y el banco no encuentra el dinero con el código de autorización, el cliente debe insistir con su banco, ya que desde nuestro lado no es posible hacer más.", , ,,,
+Reembolso y Reverso,Reembolso y Reverso,¿El pago fue realizado en una plataforma diferente a PayPal?,¿El comercio indicó que enviaría el reembolso a través de PayPal?,¿Indicarón algun plazo especifico para que el dinero se vea abonado en la cuenta?, , ,,,"Si un cliente paga fuera de PayPal y el comercio hace el reembolso por la plataforma, el dinero entrará como un pago y puede retenerse.","Si la transacción no se realizó originalmente en PayPal, el comprador debe consultar directamente con el comercio tanto para el estado del pago como para el plazo de devolución, ya que PayPal no puede intervenir ni dar seguimiento.", , , , ,,,
+Reembolso y Reverso,Reembolso y Reverso,¿Usted abrió una cuenta de PayPal?,¿La transacción reembolsada no aparece en los detalles de su cuenta?,¿Qué método de pago utilizó?,¿En qué fecha se realizó el pago y cuál fue el valor?, ,,,"Algunos clientes con cuenta PayPal pagan como invitados (WAX). Si no encuentran la transacción o el reembolso, revisa cuentas WAX/DCC.","Si el reembolso fue a cuenta WAX, verifica si quedó en saldo PayPal o volvió al método original. Normalmente queda en saldo, por lo que se puede hacer un CT entre cuentas.", , , , ,,,
+Reembolso y Reverso,Reembolso y Reverso,¿Qué error le genera cuando intenta hacer el reembolso?,¿En qué fecha se realizó el pago y cuál fue el valor?,¿Hay una reclamación abierta sobre ese pago que intenta reembolsar?,¿TIene una tarjeta debito/cuenta bancaria de la cual podamos tomar el dinero? (Solo cuando el cliente no tenga saldo en la cuenta), ,,,"Cuando el sistema genera error para realizar el reembolso, debemos revisar si la cuenta tiene una limitación que impida realizar esta acción al cliente.","Revisa si el reembolso se envía a una cuenta WAX/DCC; si la transacción es muy antigua (más de 90 días, común en México), no se podrá completar.","Si la transacción está en una cuenta guest y no se puede reembolsar, el cliente debe coordinar con el comprador para usar PayPal u otro método alternativo para enviar el reembolso.","En casos donde el reembolso no sea a una cuenta WAX, se puede solicitar un reembolso manual al SA. La comisión podría no reembolsarse, por lo que debe consultarse con el SA si es posible revertirla, ya que queda a su criterio.", , ,,,
+Pago Declinado,Pago Declinado,¿A qué comercio intentó realizar el pago?,¿En qué fecha se realizó el intento de pago y cuál fue el valor?,¿Primera vez que le ocurre o es algo frecuente con este u otro comercio?,¿A qué país está intentando enviar el pago?,¿Qué está intentando comprar? ,¿Esta agregando notas a la hora de enviar el pago?,¿Usualmente hace compras por este valor?,"PayPal puede bloquear pagos por riesgo, según factores como historial de cuenta, IP, VID, monto, entre otros.","Si el riesgo no se puede liberar desde el Flow “Payment Decline”, se puede sugerir al cliente: confirmar el método de pago, cambiarlo por otro, intentar en otro comercio o dejar la cuenta inactiva 72 horas (agendar seguimiento).","Si el pago aparece en “Payment Attempts”, significa que no fue bloqueado por riesgo. En ese caso, debe revisar con su banco o emisor de tarjeta.",No garantizar que el pago se pueda completar tras 72 horas (agendar seguimiento); puede que sí o no.,El artículo o país al que se envía el dinero pueden causar bloqueo por riesgo (por políticas de uso aceptable o sanciones OFAC).,"Evitar notas con palabras sensibles (relacionadas con riesgo, OFAC, etc.) al enviar pagos.",Cambios drásticos en el valor de los pagos pueden activar el sistema de riesgo.,,
+Pago Declinado,Pago Declinado,¿Este intento de pago lo realizó por pagina web o aplicacion? ,¿Está utilizando navegador de incógnito?,¿Está realizando el intento de pago desde el país de creación de la cuenta PayPal?, , , , ,"Usar VPN, navegación en incógnito o realizar pagos desde otro país puede generar bloqueos por riesgo.","Las transacciones deben hacerse desde un PC confiable, en el país de creación de la cuenta, con conexión segura y preferiblemente desde un navegador (no desde la app).", , , , , ,,
+Pago Declinado,Pago Declinado,¿Cuál es el error que le está generando? ,¿Cuál fue el método de pago utilizado y está confirmado?,¿La información del método de pago está actualizada?,¿En qué divisa está la compra que esta intentando realizar?,¿Ya se comunicó con la entidad bancaria y/o franquicia para validar que todo se encuentre en orden?,¿El comercio tiene habilitados los pagos para su país?,,"Si un cliente no puede pagar, valida que el método esté confirmado, con datos actualizados, y que el banco o franquicia no esté bloqueando la transacción.",Las tarjetas pueden rechazar pagos en divisas distintas si no aceptan el tipo de cambio aplicado.,"Si el intento de pago aparece en “Payment Attempts” (Flow ""Payment Decline""), no fue rechazado por riesgo y el cliente debe verificarlo con su banco/franquicia de la tarjeta.","Algunos sitios restringen pagos desde ciertos países; si hay un error relacionado con ubicación, el cliente debe validar esto con el comercio.", , , ,,
+Pago Declinado,Pago Declinado,¿Qué nota está colocando cuando va a enviar el invoice?,¿Qué articulo está cobrando por medio de este invoice?,¿Usualmente envía invoices de este valor?, , , , ,Los vendedores pueden enfrentar riesgos al enviar invoices; los detalles del rechazo se pueden ver en “Activities”.,El riesgo suele estar en las notas del invoice; se deben evitar términos sensibles o relacionados con OFAC.,"Si el riesgo no está ligado a las notas, el vendedor puede pedir al comprador que pague usando el correo o esperar 72 horas (agendar seguimiento), sin garantizar que el envío funcione luego de este tiempo.", , , , ,,
+Pay in 4/ Pay Monthly,Pay in 4/ Pay Monthly,¿Escogió pagar en 4 cuotas la compra?,¿Recuerda la fecha y valor de la transacción original?,¿Pagó la totalidad de las cuotas?,¿Recibió algún producto o servicio?,¿Creó algúna disputa o controversia sobre la compra?,,,"La autorización de un Pay in 4 sale ""To PayPal Inc."" y cuando està pendiente se debe esperar 72 horas de verificación. ","Si la compra está completada, y no ha recibido el producto, se debe abrir la controversia sobre el pago original ""Payment Sent"" ","Los casos de disputas con Pay in 4, los podemos manejar nosotros y dar información general del caso.","Podemos cambiar el método de pago que se usa para las cuotas a través del flow de ""Managed Pay Later"" en la opción de ""Autopay Settings"". Tambien el cliente lo puede hacer desde su cuenta desde la opción de ""Autopay""","Unicamente se pueden cancelar las autorizaciones a Pay in 4 que lleven las de 72 horas en estado ""pending"". Este proceso lo genera el S.A/Coach",Para ser elegible el Pay in 4 la compra debe estar entre los $30.00USD a $1.500.00USD,"El S.A/Coach, puede programar un pago o hacer el cobro de la cuota si el cliente autoriza.","El flow en Spark para verificar la información y acuerdos de pago de Pay in 4/Pay Monthly es ""Managed Pay Later""","El cliente debe seguir realizando el pago de las cuotas independientemente de que tenga una disputa, un chargeback o reembolso pendiente sobre la transacción."
+Pay in 4/ Pay Monthly,Pay in 4/ Pay Monthly,¿Escogió pagar a meses la compra?,¿A cuantos meses eligió hacer la compra?,¿Pagó la totalidad de las cuotas?,¿Ya revisó con el comercio más información sobre la transacción?,¿Recuerda la fecha y valor de la transacción original?,¿Recibió algún producto o servicio?,,Pay monthly funciona  de forma que el cliente paga las cuotas mes a mes.,"Si la compra está completada, y no ha recibido el producto, se debe abrir la controversia sobre el pago original ""Payment Sent"" ",Para ser elegible el Pay in 4 la compra debe estar entre los $199.00USD a $10.000USD,"El flow en Spark para verificar la información y acuerdos de pago de Pay in 4/Pay Monthly es ""Managed Pay Later""","Podemos cambiar el método de pago que se usa para las cuotas a través del flow de ""Managed Pay Later"" en la opción de ""Autopay Settings"". Tambien el cliente lo puede hacer desde su cuenta desde la opción de ""Autopay""","El S.A/Coach, puede programar un pago o hacer el cobro de la cuota si el cliente autoriza.","Los casos de disputas con Pay Monthly, los podemos manejar nosotros y dar información general del caso.","El cliente debe seguir realizando el pago de las cuotas independientemente de que tenga una disputa, un chargeback o reembolso pendiente sobre la transacción.",
+Pay in 4/ Pay Monthly,Pay in 4/ Pay Monthly,¿En qué fecha emitieron el reembolso?,¿Pagó la totalidad de las cuotas?,¿Ya verificó el correo electrónico con la información del reembolso?,,,,,"Los reembolso provenientes de un Pay in 4, siempre estarán emitidos al balance PayPal.","En el correo electrónico enviado al cliente, se puede verificar si el reembolso fue generado al saldo PayPal o si se utilizó para pagar el Pay in 4, esto depende de la cantidad de cuotas pagadas.",El reembolso parcial muchas veces puede usarse para pagar lo que el cliente debe del pay in 4. Esto sucede cuando se genera el mismo y aun quedan cuotas pendientes.,,,,,,
+Pay in 4/ Pay Monthly,Pay in 4/ Pay Monthly,¿Le generó algún error al momento de hacer la compra?,¿Seleccionó la opción de pagar con Pay in 4 o Pay monthly?,¿De qué valor es la compra?,¿Se encuentra en el país de origen de la cuenta PayPal?,¿Le esta generando error para pagar las cuotas?,,,Pay in 4/Pay Monthly solo está activo para Estados Unidos.,"Capital One, Synchrony co-branded credit cards, y algunas tarjetas Prepaid pueden no ser aptas para pagos automaticos. Los clientes pueden ver errores al intentar con estos métodos de pago.","Como se trata de un producto de préstamo, aplican términos y condiciones y la aprobación está sujeta al estado de la cuenta, de igual forma, antes de ser elegible, se debe diligenciar un formulario.","Si la transacción está siendo rechazada, una posible causa es que el cliente no esté realizando el pago desde el país en el que se creó la cuenta o esté utilizando una VPN. Lo ideal es que el pago se realice desde el país de origen de la cuenta y sin el uso de VPN.","Si el cliente presenta un error al intentar pagar su cuota, debemos verificar que tenga el método de pago confirmado y que cuente con saldo suficiente, ya que la falta de confirmación o de fondos puede generar inconvenientes en el proceso de pago.","Para realizar una compra con Pay in 4 o Pay Monthly, así como para pagar las cuotas correspondientes, solo se pueden utilizar cuentas bancarias confirmadas, tarjetas débito confirmadas o saldo disponible en PayPal.",,,
+Orden y autorización,Orden y autorización,¿Ya se comunicó con el comercio para validar la cancelación/aceptación del pedido?,¿Tiene algún comprobante de parte del comercio que indique la cancelación del producto/servicio?,¿En qué fecha y por qué valor fue la transacción?,¿Puede adjuntar el comprobante o captura de la cancelación?,¿El comercio cobró solo una parte del monto total o realizó el cobro completo?,,,"Para cancelar una orden y autorización en estado ""Pending"", se requiere comprobante del comercio que especifíque la cancelación del producto/servicio.","Las compras dónde el comercio cuente con Account Manager no se podrá cancelar de nuestra parte, deben revisar directamente con el comercio. ","El tiempo de vigencia de una autorización en estado ""Pending"" será de 30 días, luego de esto, se cancelará de forma automática.","Las conversaciones via chat o correo no son comprobantes válidos para poder cancelar una orden y autorización. El documento emitido debe ser un correo o PDF membreteado que traiga todos los detalles de la transacción como fecha, número de orden, valor, etc.","Cuando el comprador adquiere varios artículos en una sola compra, es común que el comercio capture el pago por separado. Por ello, es posible que solo se haya cobrado por algunos artículos, mientras que los demás estén pendientes de confirmación de stock o hayan sido cancelados.",,,,
+Orden y autorización,Orden y autorización,¿Recibió algún producto o servicio?,¿Ya se contactó con el comercio para validar esta novedad?,¿Reportó la transacción con PayPal desde el centro de resoluciones?,¿En qué fecha y por qué valor fue la transacción?,¿Los articulos fueron enviados en un mismo envio o en diferentes envios?,,,"Se puede abrir disputa a la transacción una vez este completada, esto lo podremos ver desde el movimiento ""Payment Sent"" en estado ""Completed"".","Un comercio puede cobrar hasta un 15% mas del importe originalmente autorizado, siempre y cuando ese 15% no exceda un valor máximo de $75.00 USD.","Cuando el comprador paga varios artículos en una misma compra, es común que el comercio capture el dinero por separado. Por eso, es posible que solo se haya cobrado el artículo enviado y que el resto haya sido cancelado.",,,,,,
+Orden y autorización,Orden y autorización,¿Ve reflejado el reembolso en su tarjeta?,¿Cuándo le emitieron el reembolso?,¿Se acordó un reembolso parcial o total?,¿En qué fecha y por qué valor fue la transacción?,,,,"La ""autorización"" es un importe que separa o reserva el banco del comprador para que el comercio pueda capturarlo a través de PayPal  si cuenta con el Stock solicitado. ","Cuando se cancela una autorización, se genera un ""Void"", que es el reverso del dinero. En estos casos, se debe revisar el ""CC transaction log"" en la fecha del reverso y esperar hasta 10 días hábiles. Si después de ese tiempo el cliente no ve reflejado el reintegro, se le puede proporcionar el código de autorización de 6 dígitos para que lo consulte con su entidad financiera.","En los reembolsos por orden o autorización no se realiza rastreo de fondos, ya que se trata de un ""reverse"" y no de un ""credit"" en el CC transaction log. Solo en los casos donde en el aparezca únicamente un ""credit"" se podrá abrir un rastreo de fondos.",,,,,,
+`;
+
+        const questionHeaders = [
+            "Preguntas primer nivel", "Preguntas segundo nivel", "Pregunta Tercer Nivel",
+            "Preguntas Cuarto Nivel", "Preguntas Quinto Nivel", "Preguntas Sexto Nivel", "Preguntas Septimo Nivel"
+        ];
+        const educationHeaders = [
+            "Educacion 1", "Educacion 2", "Educacion 3", "Educacion 4",
+            "Educacion 5", "Educacion 6", "Educacion 7", "Educacion 8" , "Educacion 9"
+        ];
+
+        let parsedData = [];
+        let groupedData = {};
+        let activeCategoryKey = null;
+        let hoverTimeout = null;
+
+        function parseCSV(csvString) {
+            const rows = csvString.trim().split('\n');
+            const headers = rows[0].split(',').map(h => h.trim());
+            const dataRows = rows.slice(1);
+
+            return dataRows.map(rowStr => {
+                const values = rowStr.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(v => v.trim().replace(/^"|"$/g, ''));
+                let obj = {};
+                headers.forEach((header, index) => {
+                    obj[header] = values[index] !== undefined && values[index] !== " " && values[index].toLowerCase() !== "null" ? values[index] : "";
+                });
+                return obj;
+            });
+        }
+
+        function groupData(data) {
+            const groups = {};
+            data.forEach((row, rowIndex) => {
+                let razon = row["Razon de Contacto"];
+                let tipo = row["Tipo"];
+                let key = (razon === tipo || !tipo) ? razon : `${razon} - ${tipo}`;
+                
+                if (!groups[key]) {
+                    groups[key] = [];
+                }
+                row._scenarioId = `scenario-${rowIndex}`;
+                groups[key].push(row);
+            });
+            return groups;
+        }
+
+        function displayCategories() {
+            const categoryListEl = document.getElementById('categoryList');
+            categoryListEl.innerHTML = ''; 
+
+            Object.keys(groupedData).sort().forEach(key => {
+                const li = document.createElement('li');
+                li.textContent = key;
+                li.dataset.categoryKey = key;
+
+                li.addEventListener('mouseover', () => handleCategoryMouseOver(key, li));
+                li.addEventListener('mouseout', () => handleCategoryMouseOut(li));
+                li.addEventListener('click', () => handleCategoryClick(key, li));
+                
+                categoryListEl.appendChild(li);
+            });
+        }
+
+        function displayDetails(categoryKey) {
+            const detailsPanelEl = document.getElementById('detailsPanel');
+            detailsPanelEl.innerHTML = ''; 
+
+            const scenarios = groupedData[categoryKey];
+            if (!scenarios) {
+                detailsPanelEl.innerHTML = '<div class="placeholder">No hay detalles para esta categoría.</div>';
+                return;
+            }
+            
+            scenarios.forEach((scenarioData, index) => {
+                const scenarioDiv = document.createElement('div');
+                scenarioDiv.classList.add('scenario');
+                scenarioDiv.id = scenarioData._scenarioId;
+                
+                const progressBarContainer = document.createElement('div');
+                progressBarContainer.className = 'progress-bar-container';
+                progressBarContainer.innerHTML = `<div class="progress-bar" id="progress-${scenarioData._scenarioId}"></div>`;
+                scenarioDiv.appendChild(progressBarContainer);
+
+                const firstQuestionHeader = questionHeaders.find(header => scenarioData[header] && scenarioData[header].trim() !== "");
+                let scenarioTitle = `Escenario ${index + 1}`;
+                if (firstQuestionHeader) {
+                    scenarioTitle = scenarioData[firstQuestionHeader];
+                }
+
+                const mainQuestionContainer = document.createElement('div');
+                mainQuestionContainer.className = 'question-container';
+                const mainQuestionId = `main-q-${scenarioData._scenarioId}`;
+                mainQuestionContainer.innerHTML = `
+                    <input type="checkbox" id="${mainQuestionId}" data-scenario-id="${scenarioData._scenarioId}" class="completion-checkbox">
+                    <h3><label for="${mainQuestionId}">${scenarioTitle}</label></h3>
+                `;
+                scenarioDiv.appendChild(mainQuestionContainer);
+                
+                let lastQuestionFound = false;
+                questionHeaders.forEach((qHeader, qIndex) => {
+                    if (qHeader === firstQuestionHeader && qIndex === 0) return; 
+
+                    if (scenarioData[qHeader] && scenarioData[qHeader].trim() !== "") {
+                        const subQuestionContainer = document.createElement('div');
+                        subQuestionContainer.className = 'question-container sub-question';
+                        const subQuestionId = `q-${scenarioData._scenarioId}-${qIndex}`;
+                        subQuestionContainer.innerHTML = `
+                            <input type="checkbox" id="${subQuestionId}" data-scenario-id="${scenarioData._scenarioId}" class="completion-checkbox">
+                            <label for="${subQuestionId}">${scenarioData[qHeader]}</label>
+                        `;
+                        scenarioDiv.appendChild(subQuestionContainer);
+                        lastQuestionFound = true;
+                    } else if (lastQuestionFound) {
+                        return; 
+                    }
+                });
+
+                const educationUl = document.createElement('ul');
+                educationUl.classList.add('education-list');
+                let educationFound = false;
+                educationHeaders.forEach(eHeader => {
+                    if (scenarioData[eHeader] && scenarioData[eHeader].trim() !== "") {
+                        const li = document.createElement('li');
+                        li.classList.add('education-point');
+                        li.textContent = scenarioData[eHeader];
+                        educationUl.appendChild(li);
+                        educationFound = true;
+                    }
+                });
+
+                if (educationFound) {
+                    const eduHeader = document.createElement('h4');
+                    eduHeader.textContent = "Educación:";
+                    eduHeader.style.marginTop = "15px";
+                    scenarioDiv.appendChild(eduHeader);
+                    scenarioDiv.appendChild(educationUl);
+                }
+                
+                detailsPanelEl.appendChild(scenarioDiv);
+                if (index < scenarios.length - 1) {
+                    const hr = document.createElement('hr');
+                    hr.className = 'scenario-separator';
+                    detailsPanelEl.appendChild(hr);
+                }
+                
+                updateProgressBar(scenarioData._scenarioId);
+            });
+            
+            detailsPanelEl.addEventListener('mouseover', () => {
+                if (hoverTimeout) clearTimeout(hoverTimeout);
+            });
+            detailsPanelEl.addEventListener('mouseout', (event) => {
+                 if (!activeCategoryKey && (!event.relatedTarget || !detailsPanelEl.contains(event.relatedTarget))) {
+                    resetToPlaceholderWithDelay();
+                }
+            });
+        }
+        
+        function updateProgressBar(scenarioId) {
+            const scenarioElement = document.getElementById(scenarioId);
+            if (!scenarioElement) return;
+
+            const allCheckboxesInScenario = scenarioElement.querySelectorAll('.completion-checkbox');
+            const checkedCheckboxesInScenario = scenarioElement.querySelectorAll('.completion-checkbox:checked');
+            
+            const total = allCheckboxesInScenario.length;
+            const checkedCount = checkedCheckboxesInScenario.length;
+            
+            const percentage = total > 0 ? (checkedCount / total) * 100 : 0;
+            
+            const progressBar = document.getElementById(`progress-${scenarioId}`);
+            if (progressBar) {
+                progressBar.style.width = percentage + '%';
+                progressBar.textContent = Math.round(percentage) + '%';
+            }
+        }
+
+        function resetToPlaceholder() {
+            const detailsPanelEl = document.getElementById('detailsPanel');
+            detailsPanelEl.innerHTML = '<div class="placeholder">Pasa el ratón o haz clic en una categoría para ver los detalles.</div>';
+            document.querySelectorAll('.category-list li.hovered-temp').forEach(el => el.classList.remove('hovered-temp'));
+        }
+
+        function resetToPlaceholderWithDelay() {
+            if (hoverTimeout) clearTimeout(hoverTimeout);
+            hoverTimeout = setTimeout(() => {
+                if (!activeCategoryKey) { 
+                   resetToPlaceholder();
+                }
+            }, 300); 
+        }
+
+        function handleCategoryMouseOver(key, element) {
+            if (hoverTimeout) clearTimeout(hoverTimeout);
+            
+            document.querySelectorAll('.category-list li.hovered-temp').forEach(el => el.classList.remove('hovered-temp'));
+            if (activeCategoryKey !== key) { 
+                 element.classList.add('hovered-temp');
+            }
+            displayDetails(key);
+        }
+
+        function handleCategoryMouseOut(element) {
+           if (!activeCategoryKey) { 
+                resetToPlaceholderWithDelay();
+            } else { 
+                if (element.dataset.categoryKey !== activeCategoryKey) {
+                    element.classList.remove('hovered-temp');
+                    displayDetails(activeCategoryKey);
+                }
+            }
+        }
+
+        function handleCategoryClick(key, element) {
+            if (hoverTimeout) clearTimeout(hoverTimeout);
+
+            const currentActive = document.querySelector('.category-list li.active');
+            if (currentActive) {
+                currentActive.classList.remove('active');
+            }
+            document.querySelectorAll('.category-list li.hovered-temp').forEach(el => el.classList.remove('hovered-temp'));
+
+            element.classList.add('active');
+            activeCategoryKey = key;
+            displayDetails(key);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            parsedData = parseCSV(csvData);
+            groupedData = groupData(parsedData);
+            displayCategories();
+
+            document.getElementById('detailsPanel').addEventListener('change', function(event) {
+                if (event.target.classList.contains('completion-checkbox')) {
+                    const scenarioId = event.target.dataset.scenarioId;
+                    if (scenarioId) {
+                        updateProgressBar(scenarioId);
+                    }
+                }
+            });
+
+            // --- INICIO: LÓGICA PARA EL MODAL DEL CHANGELOG ---
+            const openBtn = document.getElementById('openChangelogBtn');
+            const closeBtn = document.getElementById('closeChangelogBtn');
+            const modal = document.getElementById('changelogModal');
+
+            // Función para abrir el modal
+            openBtn.addEventListener('click', () => {
+                modal.classList.add('active');
+            });
+
+            // Función para cerrar el modal con el botón 'X'
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            // Función para cerrar el modal haciendo clic en el fondo
+            modal.addEventListener('click', (event) => {
+                // Se cierra solo si se hace clic directamente en el fondo (overlay)
+                if (event.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+            // --- FIN: LÓGICA DEL MODAL ---
+        });
+    </script>
+
+</body>
+</html>
