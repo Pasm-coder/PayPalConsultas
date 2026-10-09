@@ -1,298 +1,288 @@
 /* =========================
-   SECCIÓN STAFF
+SECCIÓN STAFF
 ========================= */
 
 .staff-section {
-  background-color: #f1f3f8;
-  padding: 50px 70px 100px;
-  min-height: 700px;
+background-color: #f1f3f8;
+padding: 50px 70px 100px;
+min-height: 700px;
 }
 
 .staff-section h1 {
-  text-align: center;
-  color: #123da0;
-  font-family: 'Secular One', sans-serif;
-  font-size: 48px;
-  margin-bottom: 50px;
+text-align: center;
+color: #123da0;
+font-family: ‘Secular One’, sans-serif;
+font-size: 48px;
+margin-bottom: 50px;
 }
 
-
 /* =========================
-   GRID
+GRID
 ========================= */
 
 .staff-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
-
-  max-width: 1050px;
-  margin: auto;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 35px;
+max-width: 1050px;
+margin: auto;
 }
 
-
 /* =========================
-   TARJETA
+TARJETA
 ========================= */
 
 .staff-card {
-  height: 300px;
-
-  perspective: 1000px;
+height: 300px;
+perspective: 1000px;
+min-width: 0;
 }
 
-
 /* =========================
-   CONTENEDOR QUE GIRA
+CONTENEDOR QUE GIRA
 ========================= */
 
 .staff-card-inner {
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-
-  transition: transform 0.7s;
-
-  transform-style: preserve-3d;
+position: relative;
+width: 100%;
+height: 100%;
+transition: transform 0.7s;
+transform-style: preserve-3d;
 }
-
 
 /* AL PASAR EL MOUSE */
 
 .staff-card:hover .staff-card-inner {
-  transform: rotateY(180deg);
+transform: rotateY(180deg);
 }
 
-
 /* =========================
-   CARAS
+CARAS DE LA TARJETA
 ========================= */
 
 .staff-card-front,
 .staff-card-back {
-
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-
-  backface-visibility: hidden;
-
-  border-radius: 12px;
-
-  box-sizing: border-box;
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+border-radius: 12px;
+box-sizing: border-box;
+overflow: hidden;
 }
 
-
 /* =========================
-   PARTE FRONTAL
+PARTE FRONTAL
 ========================= */
 
 .staff-card-front {
+background-color: white;
+border: 3px solid #123da0;
 
-  background-color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 
-  border: 3px solid #123da0;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: center;
-  align-items: center;
-
-  padding: 25px;
+padding: 25px;
 }
-
-
-/* FOTO */
-
-.foto {
-
-  width: 120px;
-  height: 120px;
-
-  border-radius: 50%;
-
-  overflow: hidden;
-
-  background-color: #e5eaf2;
-
-  margin-bottom: 15px;
-}
-
-
-.foto img {
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-
-/* NOMBRE */
-
-.staff-card-front h2 {
-
-  color: #123da0;
-
-  font-family: 'Secular One', sans-serif;
-
-  font-size: 25px;
-
-  margin: 5px 0;
-}
-
-
-/* EQUIPO */
-
-.staff-card-front p {
-
-  font-size: 18px;
-
-  color: #333;
-
-  margin: 0;
-}
-
 
 /* =========================
-   PARTE TRASERA
+FOTO
+========================= */
+
+.foto {
+width: 120px;
+height: 120px;
+flex-shrink: 0;
+border-radius: 50%;
+overflow: hidden;
+background-color: #e5eaf2;
+margin-bottom: 15px;
+}
+
+.foto img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+/* =========================
+NOMBRE FRONTAL
+========================= */
+
+.staff-card-front h2 {
+color: #123da0;
+font-family: ‘Secular One’, sans-serif;
+font-size: 25px;
+text-align: center;
+margin: 5px 0;
+}
+
+/* =========================
+EQUIPO FRONTAL
+========================= */
+
+.staff-card-front p {
+font-size: 18px;
+color: #333;
+text-align: center;
+margin: 0;
+}
+
+/* =========================
+PARTE TRASERA
 ========================= */
 
 .staff-card-back {
-
-  background-color: #123da0;
-
-  color: white;
-
-  transform: rotateY(180deg);
-
-  padding: 25px;
+background-color: #123da0;
+color: white;
+transform: rotateY(180deg);
+padding: 25px;
 }
-
-
-/* NOMBRE */
-
-.staff-card-back h2 {
-
-  font-family: 'Secular One', sans-serif;
-
-  font-size: 25px;
-
-  margin: 0;
-
-  color: white;
-}
-
-
-/* EQUIPO */
-
-.staff-card-back .equipo {
-
-  font-size: 17px;
-
-  margin: 3px 0 12px;
-}
-
-
-/* LÍNEA */
-
-.linea {
-
-  width: 100%;
-  height: 2px;
-
-  background-color: #68c7ec;
-
-  margin-bottom: 15px;
-}
-
 
 /* =========================
-   INFORMACIÓN
+NOMBRE TRASERO
+========================= */
+
+.staff-card-back h2 {
+font-family: ‘Secular One’, sans-serif;
+font-size: 25px;
+margin: 0;
+color: white;
+}
+
+/* =========================
+EQUIPO TRASERO
+========================= */
+
+.staff-card-back .equipo {
+font-size: 17px;
+margin: 3px 0 12px;
+}
+
+/* =========================
+LÍNEA DECORATIVA
+========================= */
+
+.linea {
+width: 100%;
+height: 2px;
+background-color: #68c7ec;
+margin-bottom: 15px;
+}
+
+/* =========================
+INFORMACIÓN DEL STAFF
 ========================= */
 
 .info-staff p {
-
-  display: flex;
-
-  align-items: flex-start;
-
-  gap: 8px;
-
-  font-size: 14px;
-
-  margin: 10px 0;
-
-  line-height: 1.3;
+display: flex;
+align-items: flex-start;
+gap: 8px;
+font-size: 14px;
+margin: 10px 0;
+line-height: 1.3;
+overflow-wrap: anywhere;
 }
-
 
 .info-staff i {
-
-  color: #f9d45f;
-
-  width: 20px;
-
-  text-align: center;
-
-  margin-top: 2px;
+color: #f9d45f;
+width: 20px;
+min-width: 20px;
+text-align: center;
+margin-top: 2px;
 }
-
 
 .info-staff strong {
-
-  margin-right: 3px;
+margin-right: 3px;
+flex-shrink: 0;
 }
 
-
 /* =========================
-   COLORES ALTERNOS
+COLORES DE BORDES POR COLUMNAS
 ========================= */
 
-.staff-card:nth-child(2) .staff-card-front,
-.staff-card:nth-child(5) .staff-card-front {
-
-  border-color: #f5c62f;
+/* Primera columna: azul oscuro */
+.staff-card:nth-child(3n + 1) .staff-card-front {
+border-color: #123da0;
 }
 
-
-.staff-card:nth-child(3) .staff-card-front,
-.staff-card:nth-child(6) .staff-card-front {
-
-  border-color: #68c7ec;
+/* Segunda columna: amarillo */
+.staff-card:nth-child(3n + 2) .staff-card-front {
+border-color: #f9d45f;
 }
 
+/* Tercera columna: azul claro */
+.staff-card:nth-child(3n) .staff-card-front {
+border-color: #68c7ec;
+}
 
 /* =========================
-   RESPONSIVE
+RESPONSIVE: TABLET
 ========================= */
 
 @media (max-width: 900px) {
-
-  .staff-grid {
-
-    grid-template-columns: repeat(2, 1fr);
-
-  }
-
+.staff-section {
+padding: 40px 30px 70px;
 }
 
+.staff-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 25px;
+}
+
+.staff-card {
+height: 300px;
+}
+}
+
+/* =========================
+RESPONSIVE: MÓVILES
+========================= */
 
 @media (max-width: 600px) {
+.staff-section {
+padding: 35px 20px 50px;
+}
 
-  .staff-section {
+.staff-section h1 {
+font-size: 36px;
+margin-bottom: 30px;
+}
 
-    padding: 35px 20px;
+.staff-grid {
+grid-template-columns: 1fr;
+gap: 25px;
+max-width: 380px;
+}
 
-  }
+.staff-card {
+height: 300px;
+}
 
-  .staff-grid {
+.staff-card-front,
+.staff-card-back {
+padding: 20px;
+}
 
-    grid-template-columns: 1fr;
+.staff-card-front h2,
+.staff-card-back h2 {
+font-size: 22px;
+}
 
-  }
+.foto {
+width: 110px;
+height: 110px;
+}
+}
 
+/* =========================
+ACCESIBILIDAD
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+.staff-card-inner {
+transition: none;
+}
 }
