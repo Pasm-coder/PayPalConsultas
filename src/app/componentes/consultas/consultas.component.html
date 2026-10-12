@@ -1,130 +1,303 @@
 <app-header></app-header>
-
+<!-- =================================
+     ENCABEZADO SOPORTE
+================================== -->
 <div class="soporte-header">
-
   <div class="soporte-header-content">
-
     <div class="soporte-icon">
       <i class="fa-solid fa-headset"></i>
     </div>
-
     <div>
       <h1>Soporte</h1>
-
-      <p>
-        Encuentra ayuda y soluciones para tus consultas.
-      </p>
+      <p>Encuentra ayuda y soluciones para tus consultas.</p>
     </div>
-
   </div>
-
 </div>
-
 <div class="formatos-page">
-
   <!-- =================================
-       FORMULARIO + FORMATOS
+       FORMULARIO + FORMATOS TICKETS
   ================================== -->
-
   <section class="contenido-principal">
-
     <!-- FORMULARIO -->
     <div class="formulario">
       <iframe
         src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=64W6sVOiZ0Se6NT47U3zANQ_w8MXPqRKldEtMkMYAVpUNFk3T1E4STJCQUg0MUQzSDlQVU0xOUlCMC4u&embed=true"
+        title="Formulario de soporte"
         frameborder="0"
         allowfullscreen>
       </iframe>
     </div>
-
-
     <!-- FORMATOS TICKETS -->
     <div class="formatos-tickets">
-
       <h2>Formatos Tickets</h2>
-
       <div class="lista-formatos">
+        <!-- TICKET 1: RETIRO / REEMBOLSO -->
+        <details class="formato">
+          <summary>
+            <span>Retiro/reembolso de fondos a cuenta bancaria</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="contenido-ticket">
+            <h3>Retiro/reembolso de fondos a cuenta bancaria</h3>
+            <div class="campos-ticket">
+              <p><strong>Cuenta:</strong></p>
+              <p><strong>ID de transacción:</strong></p>
+              <p><strong>Fecha de la transacción:</strong></p>
+              <p><strong>Valor:</strong></p>
+              <p><strong>Tipo de transacción:</strong></p>
+              <p>
+                <strong>Últimos cuatro dígitos de la cuenta bancaria:</strong>
+              </p>
+              <p><strong>Motivo:</strong></p>
+              <p><strong>País:</strong></p>
+            </div>
+            <div class="informacion-adicional">
+              <p>
+                <strong>Nota:</strong> En el apartado “motivo”
+                especificar la razón del rastreo, si es retiro o reembolso.
 
-        <!-- FORMATO 1 -->
-        <div class="formato">
+                Adicionalmente, debemos estar atentos al tipo de transacción,
+                este lo encontraremos yendo al detalle de transacción.
+              </p>
+            </div>
+          </div>
+        </details>
+        <!-- TICKET 2: RETIRO / REEMBOLSO A TARJETA -->
+        <details class="formato">
 
-          <h3>
-            Retiro/reembolso de fondos a cuenta bancaria
-          </h3>
+          <summary>
+            <span>Retiro/reembolso de fondos a tarjeta</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
 
-          <p>
-            Cuenta:<br>
-            ID de transacción:<br>
-            Fecha de la transacción:<br>
-            Valor:<br>
-            Tipo de la transacción:<br>
-            Últimos cuatro dígitos de la cuenta bancaria:<br>
-            Motivo:<br>
-            País:
-          </p>
+          <div class="contenido-ticket">
 
-          <span>
-            Información adicional
-          </span>
+            <h3>Retiro/reembolso de fondos a tarjeta</h3>
 
-        </div>
+            <div class="campos-ticket">
 
+              <p><strong>Cuenta:</strong></p>
 
-        <!-- FORMATO 2 -->
-        <div class="formato">
+              <p><strong>ID de transacción:</strong></p>
 
-          <h3>
-            Retiro/reembolso de fondos a cuenta bancaria
-          </h3>
+              <p><strong>CC transaction ID:</strong></p>
 
-          <p>
-            Cuenta:<br>
-            ID de transacción:<br>
-            Fecha de la transacción:<br>
-            Valor:<br>
-            Tipo de la transacción:<br>
-            Últimos cuatro dígitos de la cuenta bancaria:<br>
-            Motivo:<br>
-            País:
-          </p>
+              <p><strong>Fecha de la transacción:</strong></p>
 
-          <span>
-            Información adicional
-          </span>
+              <p><strong>Valor:</strong></p>
 
-        </div>
+              <p><strong>Tipo de transacción:</strong></p>
 
+              <p><strong>Últimos cuatro dígitos de la tarjeta:</strong></p>
 
-        <!-- FORMATO 3 -->
-        <div class="formato">
+              <p><strong>Motivo:</strong></p>
 
-          <h3>
-            Otro formato
-          </h3>
+              <p><strong>País:</strong></p>
 
-          <p>
-            Información correspondiente al ticket.
-          </p>
+            </div>
 
-          <span>
-            Información adicional
-          </span>
+            <div class="informacion-adicional">
 
-        </div>
+              <p>
+                <strong>Nota:</strong> En el apartado “motivo” especificar
+                la razón del rastreo, si es retiro o reembolso.
+
+                Recuerden que el CC transaction ID lo pueden encontrar
+                desde el CC transaction log o en el detalle de transacción
+                de Spark del movimiento “Credit To Credit Card”.
+              </p>
+
+            </div>
+
+          </div>
+
+        </details>
+
+        <!-- TICKET 3: Liberación de Hold -->
+        <details class="formato">
+
+          <summary>
+            <span>Liberación de Hold</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+
+          <div class="contenido-ticket">
+
+            <h3>Liberación de Hold</h3>
+
+            <div class="campos-ticket">
+
+              <p><strong>Cuenta:</strong></p>
+
+              <p><strong>Tipo de retención:</strong></p>
+
+              <p><strong>¿Tiene teléfono y método de pago confirmado?(si/no):</strong></p>
+
+              <p><strong>¿Qué productos / servicio vende?:</strong></p>
+
+              <p><strong>¿Cuál es el sitio web o página en línea? (en caso de no tener deberá indicar ¿cómo anuncia su negocio en línea?):</strong></p>
+
+              <p><strong>¿Cuál es el valor del pago? :</strong></p>
+
+              <p><strong>¿El vendedor fue educado con Hold?:</strong></p>
+
+              <p><strong>Comprobante entrega:</strong></p>
+
+            </div>
+
+            <div class="informacion-adicional">
+
+              <p>
+                <strong>Nota:</strong> El tiempo de respuesta que debemos dar al cliente para que el área correspondiente haga la revisiones de 48 horas hábiles
+              </p>
+
+            </div>
+
+          </div>
+
+        </details>
+
+        <!-- TICKET 4: Hold RAX (aumento de umbral) -->
+        <details class="formato">
+
+          <summary>
+            <span>Hold RAX (aumento de umbral)</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+
+          <div class="contenido-ticket">
+
+            <h3>Hold RAX (aumento de umbral)</h3>
+
+            <div class="campos-ticket">
+
+              <p><strong>Cuenta:</strong></p>
+
+              <p><strong>¿Qué vendió y a quien lo hizo?:</strong></p>
+
+              <p><strong>¿Esto es una venta entre comercios o de comercio a comprador?:</strong></p>
+
+              <p><strong>¿Cuál es el volumen de dinero, que espera recibir mensualmente por sus? (valor en dólares):</strong></p>
+
+              <p><strong>¿ Tiene el teléfono y método de pago confirmado? :</strong></p>
+
+              <p><strong>URL de la página web:</strong></p>
+
+              <p><strong>Adjuntar, prueba de la entrega e ID de transacción de algún pago recibido por producto/servicio:</strong></p>
+
+            </div>
+
+            <div class="informacion-adicional">
+
+              <p>
+                <strong>Nota:</strong> Este ticket lo generamos para pedir el aumento de umbral de recepción de pagos para generar el mismo. Es necesario que el cliente tenga confirmado su teléfono y método de pago (tarjeta, si es de LATAM o cuenta bancaria si es de USA). También deben haber pasado 30 días desde la última actualización sobre el mismo para poder generar el ticket.
+Puede haber otro escenario en el que el cliente se le aumente el umbral de recepción de pagos, pero luego se disminuye el mismo debido al volumen de pagos. En esos casos, se puede abrir un ticket preguntando al respecto para ver si es posible que se restaure el umbral anterior, pero no debemos asegurar que esto va a pasar
+              </p>
+
+            </div>
+
+          </div>
+
+        </details>
+
+        <!-- TICKET 5: Cancelar/rastrear retiro de fondos por cheque-->
+        <details class="formato">
+
+          <summary>
+            <span>Cancelar/rastrear retiro de fondos por cheque</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+
+          <div class="contenido-ticket">
+
+            <h3>Cancelar/rastrear retiro de fondos por cheque</h3>
+
+            <div class="campos-ticket">
+
+              <p><strong>Cuenta:</strong></p>
+
+              <p><strong>ID de transacción:</strong></p>
+
+              <p><strong>Fecha de la transacción:</strong></p>
+
+              <p><strong>Valor:</strong></p>
+
+              <p><strong>¿Cliente desea cancelar el cheque?:</strong></p>
+
+              <p><strong>Motivo:</strong></p>
+
+              <p><strong>País:</strong></p>
+
+            </div>
+
+            <div class="informacion-adicional">
+
+              <p>
+                <strong>Nota:</strong> los plazos para que el cliente recibe el cheque son:
+                <br>
+              - USA: De 1 a 2 semanas
+              <br>
+              - ⁠LATAM: De 2 a 4 semanas 
+              <br>
+              Tengan en cuenta que cuando el cliente pida cancelar un cheque, la transacción debe estar en estado ”check issued”.  También que si el ticket es abierto para preguntar acerca del envío del cheque o para revisar el estado de la entrega, lo más probable es que directamente el área correspondiente, cancele el retiro por cheque en Progreso.
+              </p>
+
+            </div>
+
+          </div>
+
+        </details>
+
+        <!-- TICKET 6: CT de cortesía-->
+        <details class="formato">
+
+          <summary>
+            <span>CT de cortesía</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+
+          <div class="contenido-ticket">
+
+            <h3>CT de cortesía</h3>
+
+            <div class="campos-ticket">
+
+              <p><strong>Número de cuenta:</strong></p>
+
+              <p><strong>Valor:</strong></p>
+
+              <p><strong>Tipo de CT: CT de cortesía</strong></p>
+
+              <p><strong>ID de transacción, disputa o limitación(si aplica):</strong></p>
+
+              <p><strong>Usuario de PayPal:</strong></p>
+
+              <p><strong>SA/Coach:</strong></p>
+
+              <p><strong>Descripción de detallada:</strong></p>
+
+            </div>
+
+            <div class="informacion-adicional">
+
+              <p>
+                <strong>Nota:</strong> En los casos en los que se requiere un manejo adicional al cliente, por lo extenso del proceso, insatisfacción del cliente, cobros de conversiones o comisiones de los que el cliente no tenía conocimiento. Se puede ver la opción de realizar un CT de cortesía, este CT debe estar aprobado por un SA y Coach, este mismo será quien realice el proceso, según el monto, el motivo y revisión CCI
+              <br>
+              Importante: en el apartado de “SA/Coach” debe ir el nombre del senior Agent o Coach que autorizó generar el CT de cortesía. Por otro lado, en el campo de “usuario de PayPal”, se debe colocar el usuario de Citrix del asesor que solicita el CT
+
+            </div>
+
+          </div>
+
+        </details>
 
       </div>
-
     </div>
-
   </section>
-
-
   <!-- =================================
        PREGUNTAS FRECUENTES
   ================================== -->
-
   <section class="preguntas-section">
-
     <button
       class="preguntas-header"
       type="button"
@@ -132,38 +305,84 @@
       data-bs-target="#preguntasFrecuentes"
       aria-expanded="false"
       aria-controls="preguntasFrecuentes">
-
-      Preguntas frecuentes
-
+      <span>
+        <i class="fa-solid fa-circle-question"></i>
+        Preguntas frecuentes
+      </span>
       <i class="fa-solid fa-chevron-down"></i>
-
     </button>
-
-
-    <div
-      class="collapse"
-      id="preguntasFrecuentes">
-
+    <div class="collapse" id="preguntasFrecuentes">
       <div class="preguntas-contenido">
-
-        <p>
-          ¿Qué es un CARE?
-        </p>
-
+        <a
+          href="https://internal.paypallinc.com/infocenter/GCS/details/HELP561?language=es-US"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pregunta-link">
+          <span>¿Cómo puedo vender criptomonedas en PayPal?</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a
+          href="https://internal.paypallinc.com/infocenter/GCS/details/HELP567?language=es-US"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pregunta-link">
+          <span>¿Cómo puedo comprar criptomonedas en PayPal?</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a
+          href="https://internal.paypallinc.com/infocenter/GCS/details/EMAIL424?language=es-US"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pregunta-link">
+          <span>¿Cómo hago para resolver mi saldo negativo?</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a
+          href="https://internal.paypallinc.com/infocenter/GCS/details/HELP143?language=es-XI"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pregunta-link">
+          <span>Olvidé mi contraseña. ¿Cómo hago para restablecerla?</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a
+          href="https://internal.paypallinc.com/infocenter/GCS/details/HELP546?language=es-US"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pregunta-link">
+          <span>
+            ¿Cómo puedo descargar o solicitar una corrección de mi formulario 1099?
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a
+          href="https://internal.paypallinc.com/infocenter/GCS/details/HELP220?language=es-AR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pregunta-link">
+          <span>¿Cómo cierro la cuenta PayPal de un familiar fallecido?</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
       </div>
-
     </div>
-
-
-    <!-- DECISIÓN TREE -->
-    <a href="assets/images/Decision_tree_V11.html" target="_blank" rel="noopener noreferrer" class="decision">
-      Decisión tree
-    </a>
-
-
   </section>
+<!-- =================================
+     DECISION TREE
+================================== -->
+<section class="preguntas-section">
+  <a
+    href="assets/images/Decision_tree_V11.html"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="preguntas-header decision"
+  >
+    <span>
+      <i class="fa-solid fa-diagram-project"></i>
+      Decision Tree
+    </span>
 
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+  </a>
+</section>
 </div>
-
-
 <app-footer></app-footer>
