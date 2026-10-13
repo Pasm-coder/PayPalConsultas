@@ -1,1112 +1,484 @@
+
 <app-header></app-header>
 
-<!-- =========================
-     ENCABEZADO
-========================= -->
-<section class="paises-header">
+<!-- ENCABEZADO -->
+<div class="paises-header">
+  <div class="paises-header-content">
+    <div class="paises-icon">
+      <i class="fa-solid fa-earth-americas"></i>
+    </div>
 
-  <div class="paises-icon">
-    <i class="fa-solid fa-earth-americas"></i>
+    <div>
+      <h1>Países</h1>
+      <p>Selecciona un país para consultar la información de retiros.</p>
+    </div>
   </div>
+</div>
 
-  <div>
-    <h1>Países</h1>
-    <p>Selecciona un país para consultar la información de retiros</p>
-  </div>
-
-</section>
-
-
-<!-- =========================
-     PAÍSES
-========================= -->
+<!-- BANDERAS Y NOMBRES -->
 <section class="paises-section">
-
   <div class="paises-container">
 
-    <!-- ESTADOS UNIDOS -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Estados Unidos')">
-
-      <img
-        src="assets/Paises/img/USA.png"
-        alt="Estados Unidos">
-
+    <div class="pais-item" (click)="abrirPais('Estados Unidos')">
+      <img src="assets/Paises/img/USA.png" alt="Bandera de Estados Unidos">
+      <span>Estados Unidos</span>
     </div>
 
-
-    <!-- MÉXICO -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('México')">
-
-      <img
-        src="assets/Paises/img/MX.jpg"
-        alt="México">
-
+    <div class="pais-item" (click)="abrirPais('México')">
+      <img src="assets/Paises/img/MX.jpg" alt="Bandera de México">
+      <span>México</span>
     </div>
 
-
-    <!-- COLOMBIA -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Colombia')">
-
-      <img
-        src="assets/Paises/img/CO.png"
-        alt="Colombia">
-
+    <div class="pais-item" (click)="abrirPais('Colombia')">
+      <img src="assets/Paises/img/CO.png" alt="Bandera de Colombia">
+      <span>Colombia</span>
     </div>
 
-
-    <!-- VENEZUELA -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Venezuela')">
-
-      <img
-        src="assets/Paises/img/VZLA.png"
-        alt="Venezuela">
-
+    <div class="pais-item" (click)="abrirPais('Venezuela')">
+      <img src="assets/Paises/img/VZLA.png" alt="Bandera de Venezuela">
+      <span>Venezuela</span>
     </div>
 
-
-    <!-- ARGENTINA -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Argentina')">
-
-      <img
-        src="assets/Paises/img/AR.png"
-        alt="Argentina">
-
+    <div class="pais-item" (click)="abrirPais('Argentina')">
+      <img src="assets/Paises/img/AR.png" alt="Bandera de Argentina">
+      <span>Argentina</span>
     </div>
 
-
-    <!-- REPÚBLICA DOMINICANA -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('República Dominicana')">
-
-      <img
-        src="assets/Paises/img/RD.png"
-        alt="República Dominicana">
-
+    <div class="pais-item" (click)="abrirPais('República Dominicana')">
+      <img src="assets/Paises/img/RD.png" alt="Bandera de República Dominicana">
+      <span>República Dominicana</span>
     </div>
 
-
-    <!-- CHILE -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Chile')">
-
-      <img
-        src="assets/Paises/img/CL.png"
-        alt="Chile">
-
+    <div class="pais-item" (click)="abrirPais('Chile')">
+      <img src="assets/Paises/img/CL.png" alt="Bandera de Chile">
+      <span>Chile</span>
     </div>
 
-    <!-- PERÚ -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Perú')">
-
-      <img
-        src="assets/Paises/img/PE.jpeg"
-        alt="Perú">
-
+    <div class="pais-item" (click)="abrirPais('Perú')">
+      <img src="assets/Paises/img/PE.jpeg" alt="Bandera de Perú">
+      <span>Perú</span>
     </div>
 
-    <!-- Panama -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Panama')">
-
-      <img
-        src="assets/Paises/img/PA.svg"
-        alt="Panama">
-
+    <div class="pais-item" (click)="abrirPais('Panama')">
+      <img src="assets/Paises/img/PA.svg" alt="Bandera de Panamá">
+      <span>Panamá</span>
     </div>
 
-    <!-- Costa Rica -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Costa Rica')">
-
-      <img
-        src="assets/Paises/img/CR.png"
-        alt="Costa Rica">
-
+    <div class="pais-item" (click)="abrirPais('Costa Rica')">
+      <img src="assets/Paises/img/CR.png" alt="Bandera de Costa Rica">
+      <span>Costa Rica</span>
     </div>
 
-    <!-- Ecuador -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Ecuador')">
-
-      <img
-        src="assets/Paises/img/EC.svg"
-        alt="Ecuador">
-
+    <div class="pais-item" (click)="abrirPais('Ecuador')">
+      <img src="assets/Paises/img/EC.svg" alt="Bandera de Ecuador">
+      <span>Ecuador</span>
     </div>
 
-    <!-- Bolivia -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Bolivia')">
-
-      <img
-        src="assets/Paises/img/BO.png"
-        alt="Bolivia">
-
+    <div class="pais-item" (click)="abrirPais('Bolivia')">
+      <img src="assets/Paises/img/BO.png" alt="Bandera de Bolivia">
+      <span>Bolivia</span>
     </div>
 
-    <!-- Ecuador -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Ecuador')">
-
-      <img
-        src="assets/Paises/img/EC.svg"
-        alt="Ecuador">
-
+    <div class="pais-item" (click)="abrirPais('Honduras')">
+      <img src="assets/Paises/img/HN.png" alt="Bandera de Honduras">
+      <span>Honduras</span>
     </div>
 
-    <!-- Honduras -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Honduras')">
-
-      <img
-        src="assets/Paises/img/HN.png"
-        alt="Honduras">
-
+    <div class="pais-item" (click)="abrirPais('Uruguay')">
+      <img src="assets/Paises/img/UY.png" alt="Bandera de Uruguay">
+      <span>Uruguay</span>
     </div>
 
-    <!-- Uruguay -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Uruguay')">
-
-      <img
-        src="assets/Paises/img/UY.png"
-        alt="Uruguay">
-
+    <div class="pais-item" (click)="abrirPais('Nicaragua')">
+      <img src="assets/Paises/img/NI.png" alt="Bandera de Nicaragua">
+      <span>Nicaragua</span>
     </div>
 
-    <!-- Nicaragua -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Nicaragua')">
-
-      <img
-        src="assets/Paises/img/NI.png"
-        alt="Nicaragua">
-
+    <div class="pais-item" (click)="abrirPais('El Salvador')">
+      <img src="assets/Paises/img/SV.svg" alt="Bandera de El Salvador">
+      <span>El Salvador</span>
     </div>
 
-    <!-- El Salvador -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('El Salvador')">
-
-      <img
-        src="assets/Paises/img/SV.svg"
-        alt="El Salvador">
-
-    </div>
-
-    <!-- Guatemala -->
-    <div
-      class="pais-item"
-      (click)="abrirPais('Guatemala')">
-
-      <img
-        src="assets/Paises/img/GT.svg"
-        alt="Guatemala">
-
+    <div class="pais-item" (click)="abrirPais('Guatemala')">
+      <img src="assets/Paises/img/GT.svg" alt="Bandera de Guatemala">
+      <span>Guatemala</span>
     </div>
 
   </div>
-
 </section>
 
-
-<!-- =====================================================
-     MODAL GENERAL
-===================================================== -->
-
+<!-- VENTANA MODAL -->
 <div
   class="modal-fondo"
   *ngIf="paisSeleccionado"
-  (click)="cerrarPais()">
+  (click)="cerrarPais()"
+>
+  <div class="modal-pais" (click)="$event.stopPropagation()">
 
-  <div
-    class="modal-pais"
-    (click)="$event.stopPropagation()">
+    <button
+      type="button"
+      class="cerrar-modal"
+      aria-label="Cerrar ventana"
+      (click)="cerrarPais()"
+    >
+      &times;
+    </button>
 
-
-    <!-- =================================================
-         ESTADOS UNIDOS
-    ================================================== -->
-
+    <!-- ESTADOS UNIDOS -->
     <ng-container *ngIf="paisSeleccionado === 'Estados Unidos'">
+      <h2>Estados Unidos</h2>
+      <p><strong>Divisa:</strong> Dólar estadounidense (USD)</p>
 
-      <div class="modal-header">
+      <h3>Documentos aceptados</h3>
+      <ul>
+        <li>Licencia de conducir.</li>
+        <li>Documento de identidad.</li>
+        <li>Pasaporte.</li>
+      </ul>
 
-        <div class="modal-pais-titulo">
+      <h3>Métodos de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local o de Estados Unidos.</li>
+        <li>Tarjeta de débito VISA o Mastercard.</li>
+        <li>PayPal Debit.</li>
+        <li>Cheque.</li>
+      </ul>
 
-          <img
-            src="assets/Paises/img/USA.png"
-            alt="Estados Unidos">
+      <h3>Monto mínimo de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria: $1 USD.</li>
+        <li>Tarjeta de débito: $1 USD.</li>
+        <li>Cheque: $150 USD.</li>
+      </ul>
 
-          <div>
-            <h2>Estados Unidos</h2>
-            <p>Dólar Americano (USD)</p>
-          </div>
+      <h3>Tiempo de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria: 5 días hábiles.</li>
+        <li>Tarjeta de débito: hasta 48 horas.</li>
+        <li>Cheque: de 2 a 4 semanas.</li>
+        <li>Retiro instantáneo: de 30 minutos a 24 horas.</li>
+      </ul>
 
-        </div>
+      <h3>Recarga de saldo PayPal</h3>
+      <p>Se puede recargar mediante tarjeta de débito o cuenta bancaria.</p>
+      <ul>
+        <li>Monto mínimo: $1 USD.</li>
+        <li>Cuenta bancaria: 5 días hábiles.</li>
+        <li>Tarjeta de débito: hasta 24 horas hábiles.</li>
+      </ul>
 
-        <button
-          class="cerrar-modal"
-          (click)="cerrarPais()">
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="modal-contenido">
-
-        <!-- DOCUMENTO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-id-card"></i>
-            Documento
-          </h3>
-
-          <p>
-            Licencia de conducir, tarjeta de Identidad y pasaporte
-          </p>
-
-        </div>
-
-
-        <!-- MÉTODOS DE RETIRO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-money-bill-transfer"></i>
-            Métodos de retiro
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local o USA</li>
-            <li>Tarjeta débito VISA/Mastercard</li>
-            <li>Tarjeta PayPal Debit</li>
-            <li>Cheque</li>
-          </ul>
-
-        </div>
-
-
-        <!-- MONTO MÍNIMO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-dollar-sign"></i>
-            Monto mínimo
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local: $1 USD</li>
-            <li>Tarjeta débito: $1 USD</li>
-            <li>Cheque: $150 USD</li>
-          </ul>
-
-        </div>
-
-
-        <!-- TIEMPO DE FONDOS -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-clock"></i>
-            Tiempo de fondos
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local: 5 días hábiles</li>
-            <li>Tarjeta débito: 48 horas</li>
-            <li>Cheque: 2–4 semanas</li>
-            <li>Retiro instantáneo: 30 minutos – 24 horas</li>
-          </ul>
-
-        </div>
-
-
-        <!-- RECARGAR SALDO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-wallet"></i>
-            Recargar saldo PayPal
-          </h3>
-
-          <ul>
-            <li>Puede recargar desde tarjeta débito o cuenta bancaria</li>
-            <li>Monto mínimo: $1 USD</li>
-            <li>Cuenta bancaria: 5 días hábiles</li>
-            <li>Tarjeta débito: 24 horas hábiles</li>
-          </ul>
-
-        </div>
-
-
-        <!-- COMISIONES -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-percent"></i>
-            Comisiones
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria estándar: sin comisión</li>
-            <li>Cuenta bancaria instantánea: 1.25%</li>
-            <li>Tarjeta débito estándar: sin comisión</li>
-            <li>Tarjeta débito instantánea: 1.75%</li>
-            <li>Cheque: $1.50 USD</li>
-            <li>PayPal Debit MoneyPass: sin comisión</li>
-          </ul>
-
-        </div>
-
-      </div>
-
+      <h3>Comisiones por retiro</h3>
+      <ul>
+        <li>Cuenta bancaria estándar: sin comisión.</li>
+        <li>Cuenta bancaria instantánea: 1.25%.</li>
+        <li>Tarjeta estándar: sin comisión.</li>
+        <li>Tarjeta instantánea: 1.75%.</li>
+        <li>Cheque: $1.50 USD.</li>
+        <li>PayPal Debit en MoneyPass: sin comisión.</li>
+      </ul>
     </ng-container>
 
-
-    <!-- =================================================
-         MÉXICO
-    ================================================== -->
-
+    <!-- MÉXICO -->
     <ng-container *ngIf="paisSeleccionado === 'México'">
+      <h2>México</h2>
+      <p><strong>Divisa:</strong> Peso mexicano (MXN)</p>
 
-      <div class="modal-header">
+      <h3>Documentos aceptados</h3>
+      <ul>
+        <li>DNI.</li>
+        <li>INE.</li>
+        <li>CURP.</li>
+        <li>IFE.</li>
+      </ul>
 
-        <div class="modal-pais-titulo">
+      <h3>Métodos de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local.</li>
+        <li>Cuenta bancaria de Estados Unidos.</li>
+      </ul>
 
-          <img
-            src="assets/Paises/img/MX.jpg"
-            alt="México">
+      <h3>Recarga de saldo PayPal</h3>
+      <p>No es posible recargar saldo PayPal.</p>
 
-          <div>
-            <h2>México</h2>
-            <p>Peso Mexicano (MXN)</p>
-          </div>
+      <h3>Tiempo de retiro</h3>
+      <p>
+        Los retiros automáticos se realizan a medianoche, de acuerdo con
+        las condiciones locales de la Ley Fintech.
+      </p>
+      <ul>
+        <li>Retiro estándar: 5 días hábiles.</li>
+        <li>Retiro instantáneo: de 30 minutos.</li>
+      </ul>
 
-        </div>
+      <h3>Monto mínimo</h3>
+      <p>No se indica un monto mínimo para la transferencia automática.</p>
 
-        <button
-          class="cerrar-modal"
-          (click)="cerrarPais()">
-          ×
-        </button>
+      <h3>Comisiones por retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local estándar: sin comisión.</li>
+        <li>Retiro instantáneo: $40 MXN.</li>
+        <li>Cuenta bancaria de Estados Unidos: sin comisión.</li>
+      </ul>
 
-      </div>
-
-
-      <div class="modal-contenido">
-
-        <!-- DOCUMENTO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-id-card"></i>
-            Documento
-          </h3>
-
-          <p>
-            DNI, INE, CURP, IFE
-          </p>
-
-        </div>
-
-
-        <!-- MÉTODOS -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-money-bill-transfer"></i>
-            Métodos de retiro
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local</li>
-            <li>Cuenta bancaria USA</li>
-          </ul>
-
-        </div>
-
-
-        <!-- RECARGA -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-ban"></i>
-            Recargar saldo PayPal
-          </h3>
-
-          <p>
-            No es posible recargar saldo PayPal.
-          </p>
-
-        </div>
-
-
-        <!-- RETIROS AUTOMÁTICOS -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-arrows-rotate"></i>
-            Retiros automáticos
-          </h3>
-
-          <p>
-            Los retiros automáticos se realizan a medianoche
-            por normativa local (Ley Fintech).
-          </p>
-
-        </div>
-
-
-        <!-- TIEMPO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-clock"></i>
-            Tiempo de fondos
-          </h3>
-
-          <ul>
-            <li>Retiro estándar: 5 días hábiles</li>
-            <li>Retiro instantáneo: 30 minutos</li>
-          </ul>
-
-        </div>
-
-
-        <!-- MONTO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-dollar-sign"></i>
-            Monto mínimo
-          </h3>
-
-          <p>
-            No existe monto mínimo para la transferencia automática.
-          </p>
-
-        </div>
-
-
-        <!-- COMISIONES -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-percent"></i>
-            Comisiones
-          </h3>
-
-          <ul>
-            <li>Retiro local estándar: sin comisión</li>
-            <li>Retiro instantáneo: $40 MXN</li>
-            <li>Cuenta bancaria USA: sin comisión</li>
-          </ul>
-
-        </div>
-
-
-        <!-- NOTA -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-circle-info"></i>
-            Nota
-          </h3>
-
-          <p>
-            Facturación empresas usa DETECNO EMAIL608.
-          </p>
-
-        </div>
-
-      </div>
-
+      <p><strong>Nota:</strong> Para facturación de la empresa se utiliza DETECNO EMAIL608.</p>
     </ng-container>
 
-
-    <!-- =================================================
-         COLOMBIA
-    ================================================== -->
-
-    <ng-container *ngIf="paisSeleccionado === 'Colombia'">
-
-      <div class="modal-header">
-
-        <div class="modal-pais-titulo">
-
-          <img
-            src="assets/Paises/img/CO.png"
-            alt="Colombia">
-
-          <div>
-            <h2>Colombia</h2>
-            <p>Peso Colombiano (COP)</p>
-          </div>
-
-        </div>
-
-        <button
-          class="cerrar-modal"
-          (click)="cerrarPais()">
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="modal-contenido">
-
-        <!-- DOCUMENTO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-id-card"></i>
-            Documento
-          </h3>
-
-          <p>
-            Cédula de ciudadanía antigua / actual,
-            PPT / Cédula de extranjería
-          </p>
-
-        </div>
-
-
-        <!-- RECARGA -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-ban"></i>
-            Recargar saldo PayPal
-          </h3>
-
-          <p>
-            No puede recargar saldo PayPal.
-          </p>
-
-        </div>
-
-
-        <!-- MONTO MÍNIMO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-dollar-sign"></i>
-            Monto mínimo
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local: $30 USD</li>
-            <li>Cuenta bancaria USA: $1 USD</li>
-          </ul>
-
-        </div>
-
-
-        <!-- TERCERO REGULADOR -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-building-columns"></i>
-            Tercero regulador
-          </h3>
-
-          <p>
-            Pagos Internacionales (Banco W)
-          </p>
-
-        </div>
-
-
-        <!-- MÉTODOS -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-money-bill-transfer"></i>
-            Métodos de retiro
-          </h3>
-
-          <ul>
-            <li>Nequi → TEAM1188 / EMAIL627</li>
-            <li>BBVA local → HELP2B3</li>
-            <li>Cuenta bancaria USA</li>
-          </ul>
-
-        </div>
-
-
-        <!-- TIEMPO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-clock"></i>
-            Tiempo de fondos
-          </h3>
-
-          <p>
-            3–5 días hábiles
-          </p>
-
-        </div>
-
-
-        <!-- COMISIONES -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-percent"></i>
-            Comisiones
-          </h3>
-
-          <ul>
-            <li>Retiro local: $3.500 COP</li>
-            <li>Cuenta bancaria USA: 3.50%</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </ng-container>
-
-
-    <!-- =================================================
-         REPÚBLICA DOMINICANA
-    ================================================== -->
-
-    <ng-container *ngIf="paisSeleccionado === 'República Dominicana'">
-
-      <div class="modal-header">
-
-        <div class="modal-pais-titulo">
-
-          <img
-            src="assets/Paises/img/RD.png"
-            alt="República Dominicana">
-
-          <div>
-            <h2>República Dominicana</h2>
-            <p>Peso Dominicano (DOP)</p>
-          </div>
-
-        </div>
-
-        <button
-          class="cerrar-modal"
-          (click)="cerrarPais()">
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="modal-contenido">
-
-        <!-- DOCUMENTO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-id-card"></i>
-            Documento
-          </h3>
-
-          <p>
-            Cédula de identidad y electoral
-          </p>
-
-        </div>
-
-
-        <!-- MÉTODOS -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-money-bill-transfer"></i>
-            Métodos de retiro
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local</li>
-            <li>Cuenta bancaria USA</li>
-            <li>Wire Transfer</li>
-          </ul>
-
-        </div>
-
-
-        <!-- RECARGA -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-ban"></i>
-            Recargar saldo PayPal
-          </h3>
-
-          <p>
-            No es posible recargar saldo PayPal.
-          </p>
-
-        </div>
-
-
-        <!-- MONTO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-dollar-sign"></i>
-            Monto mínimo
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local: $10 USD</li>
-            <li>Cuenta bancaria USA: $1 USD</li>
-            <li>Wire Transfer: $20 USD</li>
-          </ul>
-
-        </div>
-
-
-        <!-- TIEMPO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-clock"></i>
-            Tiempo de fondos
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local: 1–2 días hábiles</li>
-            <li>Wire Transfer: 1–2 días hábiles</li>
-            <li>Cuenta bancaria USA: 5 días hábiles</li>
-          </ul>
-
-        </div>
-
-
-        <!-- COMISIONES -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-percent"></i>
-            Comisiones
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local: $100 DOP</li>
-            <li>Cuenta bancaria USA: 3%</li>
-            <li>Wire Transfer: 1% — mínimo $10 USD</li>
-          </ul>
-
-        </div>
-
-      </div>
-
-    </ng-container>
-
-
-    <!-- =================================================
-         ARGENTINA
-    ================================================== -->
-
+    <!-- ARGENTINA -->
     <ng-container *ngIf="paisSeleccionado === 'Argentina'">
+      <h2>Argentina</h2>
+      <p><strong>Divisa:</strong> Peso argentino (ARS)</p>
 
-      <div class="modal-header">
+      <h3>Monto mínimo de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local: $20.00 USD.</li>
+        <li>Cuenta bancaria de Estados Unidos: $1.00 USD.</li>
+        <li>Cheque por correo postal: $150.00 USD.</li>
+      </ul>
 
-        <div class="modal-pais-titulo">
+      <h3>Tiempo de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local: 5 días hábiles.</li>
+        <li>Cuenta bancaria de Estados Unidos: 5 días hábiles.</li>
+        <li>Cheque: de 4 a 6 semanas.</li>
+      </ul>
 
-          <img
-            src="assets/Paises/img/AR.png"
-            alt="Argentina">
+      <h3>Tercero regulador</h3>
+      <p>Jet Perú.</p>
 
-          <div>
-            <h2>Argentina</h2>
-            <p>Peso Argentino (ARS)</p>
-          </div>
+      <h3>Recarga de saldo PayPal</h3>
+      <p>No es posible recargar saldo.</p>
 
-        </div>
+      <h3>Métodos de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local.</li>
+        <li>Cuenta bancaria de Estados Unidos.</li>
+        <li>Solicitud de cheque por correo postal.</li>
+      </ul>
 
-        <button
-          class="cerrar-modal"
-          (click)="cerrarPais()">
-          ×
-        </button>
+      <h3>Consideraciones importantes</h3>
+      <ul>
+        <li>
+          La cuenta bancaria asociada debe estar en pesos argentinos para
+          completar los retiros.
+        </li>
+        <li>Los retiros a cuentas locales en dólares se revertirán.</li>
+        <li>
+          Para retirar en USD, se debe vincular una cuenta bancaria
+          estadounidense de la que el usuario sea titular.
+        </li>
+      </ul>
 
-      </div>
-
-
-      <div class="modal-contenido">
-
-        <!-- DOCUMENTO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-id-card"></i>
-            Documento
-          </h3>
-
-          <p>
-            DNI
-          </p>
-
-        </div>
-
-
-        <!-- MÉTODOS -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-money-bill-transfer"></i>
-            Métodos de retiro
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local</li>
-            <li>Cuenta bancaria USA</li>
-            <li>Cheque por correo postal</li>
-          </ul>
-
-        </div>
-
-
-        <!-- MONTO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-dollar-sign"></i>
-            Monto mínimo
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local: $20 USD</li>
-            <li>Cuenta bancaria USA: $1 USD</li>
-            <li>Cheque: $150 USD</li>
-          </ul>
-
-        </div>
-
-
-        <!-- TIEMPO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-clock"></i>
-            Tiempo de fondos
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local: 5 días hábiles</li>
-            <li>Cuenta bancaria USA: 5 días hábiles</li>
-            <li>Cheque: 4–6 semanas</li>
-          </ul>
-
-        </div>
-
-
-        <!-- TERCERO -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-building-columns"></i>
-            Tercero regulador
-          </h3>
-
-          <p>
-            Jet Peru
-          </p>
-
-        </div>
-
-
-        <!-- RECARGA -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-ban"></i>
-            Recargar saldo PayPal
-          </h3>
-
-          <p>
-            No es posible recargar saldo PayPal.
-          </p>
-
-        </div>
-
-
-        <!-- COMISIONES -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-percent"></i>
-            Comisiones
-          </h3>
-
-          <ul>
-            <li>Cuenta bancaria local: $75 ARS por retiro</li>
-            <li>Cuenta bancaria USA: 3.50%</li>
-            <li>Cheque: $11 USD</li>
-          </ul>
-
-        </div>
-
-
-        <!-- NOTAS -->
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-circle-info"></i>
-            Notas importantes
-          </h3>
-
-          <ul>
-
-            <li>
-              La cuenta bancaria asociada debe estar en pesos argentinos.
-            </li>
-
-            <li>
-              Las cuentas locales en dólares son rechazadas/revertidas.
-            </li>
-
-            <li>
-              Para retirar USD, se debe vincular una cuenta bancaria
-              de Estados Unidos a nombre del usuario.
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
+      <h3>Comisiones por retiro de fondos</h3>
+      <ul>
+        <li>Cuenta bancaria local: $75.00 ARS por retiro en ARS.</li>
+        <li>Cuenta bancaria de Estados Unidos: 3.50%.</li>
+        <li>Cheque: $11.00 USD.</li>
+      </ul>
     </ng-container>
 
+    <!-- BOLIVIA -->
+    <ng-container *ngIf="paisSeleccionado === 'Bolivia'">
+      <h2>Bolivia</h2>
+      <p><strong>Divisa:</strong> Boliviano (BOB)</p>
 
-    <!-- =================================================
-         VENEZUELA
-    ================================================== -->
+      <h3>Documento aceptado</h3>
+      <p>Cédula de identidad.</p>
 
-    <ng-container *ngIf="paisSeleccionado === 'Venezuela'">
-
-      <div class="modal-header">
-
-        <div class="modal-pais-titulo">
-
-          <img
-            src="assets/Paises/img/VZLA.png"
-            alt="Venezuela">
-
-          <div>
-            <h2>Venezuela</h2>
-            <p>Información de retiros</p>
-          </div>
-
-        </div>
-
-        <button
-          class="cerrar-modal"
-          (click)="cerrarPais()">
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="modal-contenido">
-
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-circle-info"></i>
-            Información
-          </h3>
-
-          <p>
-            Información pendiente de agregar.
-          </p>
-
-        </div>
-
-      </div>
-
+      <h3>Servicios disponibles</h3>
+      <ul>
+        <li>No se puede recargar saldo PayPal.</li>
+        <li>Solo se pueden utilizar tarjetas de crédito o débito para realizar pagos.</li>
+        <li>Solo se pueden enviar pagos; no se pueden recibir.</li>
+      </ul>
     </ng-container>
 
-
-    <!-- =================================================
-         CHILE
-    ================================================== -->
-
+    <!-- CHILE -->
     <ng-container *ngIf="paisSeleccionado === 'Chile'">
+      <h2>Chile</h2>
+      <p><strong>Divisa:</strong> Peso chileno (CLP)</p>
 
-      <div class="modal-header">
+      <h3>Documento aceptado</h3>
+      <p>Cédula de identidad.</p>
 
-        <div class="modal-pais-titulo">
+      <h3>Monto mínimo de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local: $10.00 USD.</li>
+        <li>Cuenta bancaria de Estados Unidos: $1.00 USD.</li>
+        <li>Wire Transfer: $20.00 USD.</li>
+      </ul>
 
-          <img
-            src="assets/Paises/img/CL.png"
-            alt="Chile">
+      <h3>Tiempo de retiro</h3>
+      <ul>
+        <li>Tarjeta: 7 días hábiles.</li>
+        <li>Cuenta bancaria local: 1 día hábil.</li>
+        <li>Wire Transfer: 1 día hábil.</li>
+        <li>Cheque: de 4 a 6 semanas.</li>
+        <li>Cuenta bancaria de Estados Unidos: 5 días hábiles.</li>
+        <li>Transferencia instantánea: de 30 minutos a un máximo de 24 horas.</li>
+      </ul>
 
-          <div>
-            <h2>Chile</h2>
-            <p>Información de retiros</p>
-          </div>
+      <h3>Tercero regulador</h3>
+      <p>AFEX.</p>
 
-        </div>
+      <h3>Métodos de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local.</li>
+        <li>Tarjeta VISA.</li>
+        <li>Cuenta bancaria de Estados Unidos.</li>
+        <li>Wire Transfer.</li>
+        <li>Retiro mediante cheque.</li>
+      </ul>
 
-        <button
-          class="cerrar-modal"
-          (click)="cerrarPais()">
-          ×
-        </button>
+      <h3>Recarga de saldo PayPal</h3>
+      <p>No es posible recargar saldo.</p>
 
-      </div>
-
-
-      <div class="modal-contenido">
-
-        <div class="info-card">
-
-          <h3>
-            <i class="fa-solid fa-circle-info"></i>
-            Información
-          </h3>
-
-          <p>
-            Información pendiente de agregar.
-          </p>
-
-        </div>
-
-      </div>
-
+      <h3>Comisiones por retiro</h3>
+      <ul>
+        <li>Banco local: $800.00 CLP por retiro en CLP.</li>
+        <li>
+          Wire Transfer: 1.00%, comisión mínima de $10.00 USD
+          por retiro en USD.
+        </li>
+        <li>Cuenta bancaria de Estados Unidos: 3.00%.</li>
+        <li>Tarjeta: $11.00 USD.</li>
+      </ul>
     </ng-container>
 
+    <!-- COLOMBIA -->
+    <ng-container *ngIf="paisSeleccionado === 'Colombia'">
+      <h2>Colombia</h2>
+      <p><strong>Divisa:</strong> Peso colombiano (COP)</p>
+
+      <h3>Monto mínimo de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local: $30.00 USD.</li>
+        <li>Cuenta bancaria de Estados Unidos: $1.00 USD.</li>
+      </ul>
+
+      <h3>Tercero regulador</h3>
+      <p>Pagos Internacionales (Banco W).</p>
+
+      <h3>Tiempo para recibir fondos</h3>
+      <p>De 3 a 5 días hábiles para ambos tipos de cuenta bancaria.</p>
+
+      <h3>Recarga de saldo PayPal</h3>
+      <p>No se puede recargar saldo PayPal.</p>
+
+      <h3>Métodos de retiro</h3>
+      <ul>
+        <li>Nequi: TEAM1188 y EMAIL627.</li>
+        <li>Cuenta bancaria local: HELP183.</li>
+        <li>Cuenta bancaria de Estados Unidos.</li>
+      </ul>
+
+      <h3>Comisiones por retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local: $3,500.00 COP.</li>
+        <li>Cuenta bancaria de Estados Unidos: 3.50%.</li>
+      </ul>
+    </ng-container>
+
+    <!-- COSTA RICA -->
+    <ng-container *ngIf="paisSeleccionado === 'Costa Rica'">
+      <h2>Costa Rica</h2>
+      <p><strong>Divisa:</strong> Colón costarricense (CRC)</p>
+
+      <h3>Monto mínimo de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local: $10.00 USD.</li>
+        <li>Cuenta bancaria de Estados Unidos: $1.00 USD.</li>
+        <li>Wire Transfer: $20.00 USD.</li>
+      </ul>
+
+      <h3>Tiempo para recibir fondos</h3>
+      <p>5 días hábiles para todos los métodos indicados.</p>
+
+      <h3>Métodos de retiro</h3>
+      <ul>
+        <li>Kipo: TEAM1188 y KIPO.</li>
+        <li>Wink: TEAM192.</li>
+        <li>Cuenta bancaria local: HELP183.</li>
+        <li>Cuenta bancaria de Estados Unidos.</li>
+      </ul>
+
+      <h3>Comisiones por retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local: $625.00 CRC.</li>
+        <li>Cuenta bancaria de Estados Unidos: 3.00%.</li>
+        <li>
+          Wire Transfer: 1.00%, comisión mínima de $10.00 USD.
+        </li>
+      </ul>
+    </ng-container>
+
+    <!-- REPÚBLICA DOMINICANA -->
+    <ng-container *ngIf="paisSeleccionado === 'República Dominicana'">
+      <h2>República Dominicana</h2>
+      <p><strong>Divisa:</strong> Peso dominicano (DOP)</p>
+
+      <h3>Documento aceptado</h3>
+      <p>Cédula de identidad y electoral.</p>
+
+      <h3>Monto mínimo de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local: $10.00 USD.</li>
+        <li>Cuenta bancaria de Estados Unidos: $1.00 USD.</li>
+        <li>Wire Transfer: $20.00 USD.</li>
+      </ul>
+
+      <h3>Tiempo para recibir fondos</h3>
+      <ul>
+        <li>Cuenta bancaria local: de 1 a 2 días hábiles.</li>
+        <li>Wire Transfer: 5 días hábiles.</li>
+        <li>Cuenta bancaria de Estados Unidos: 5 días hábiles.</li>
+      </ul>
+
+      <h3>Métodos de retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local.</li>
+        <li>Cuenta bancaria de Estados Unidos.</li>
+        <li>Wire Transfer.</li>
+      </ul>
+
+      <h3>Recarga de saldo PayPal</h3>
+      <p>No se puede recargar saldo PayPal.</p>
+
+      <h3>Comisiones por retiro</h3>
+      <ul>
+        <li>Cuenta bancaria local: $100.00 DOP.</li>
+        <li>Cuenta bancaria de Estados Unidos: 3.00%.</li>
+        <li>
+          Wire Transfer: 1.00%, comisión mínima de $10.00 USD.
+        </li>
+      </ul>
+    </ng-container>
+
+    <!-- OTROS PAÍSES -->
+    <ng-container
+      *ngIf="
+        paisSeleccionado === 'Venezuela' ||
+        paisSeleccionado === 'Perú' ||
+        paisSeleccionado === 'Panama' ||
+        paisSeleccionado === 'Ecuador' ||
+        paisSeleccionado === 'Honduras' ||
+        paisSeleccionado === 'Uruguay' ||
+        paisSeleccionado === 'Nicaragua' ||
+        paisSeleccionado === 'El Salvador' ||
+        paisSeleccionado === 'Guatemala'
+      "
+    >
+      <h2>{{ paisSeleccionado }}</h2>
+      <p>
+        Consulta aquí los métodos de retiro, montos mínimos, tiempos
+        de procesamiento y comisiones correspondientes a este país.
+      </p>
+      <p>
+        La información detallada de este país debe conservarse o
+        incorporarse desde su bloque original.
+      </p>
+    </ng-container>
 
   </div>
-
 </div>
+
+<app-footer></app-footer>
