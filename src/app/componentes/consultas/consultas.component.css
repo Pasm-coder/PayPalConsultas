@@ -1,3 +1,87 @@
+.info-header {
+  width: 100%;
+  background-color: #0638a8;
+
+  padding: 40px 50px;
+
+  box-sizing: border-box;
+}
+
+
+.info-header-content {
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+
+/* Círculo amarillo */
+
+.info-icon {
+  width: 85px;
+  height: 85px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background-color: #f9d45f;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.info-icon i {
+  color: #0638a8;
+
+  font-size: 40px;
+}
+
+
+/* Título */
+
+.info-header h1 {
+  margin: 0;
+
+  color: white;
+
+  font-family: 'Secular One', sans-serif;
+
+  font-size: 38px;
+
+  font-weight: 700;
+}
+
+
+/* Texto */
+
+.info-header p {
+  margin: 5px 0 0;
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 17px;
+}
+
+.contenedor {
+  background-color: #f1f3f8;
+  min-height: 100vh;
+  padding: 50px 8%;
+  box-sizing: border-box;
+}
+
+
+
 /* =========================================
    CONTENEDOR GENERAL
 ========================================= */
