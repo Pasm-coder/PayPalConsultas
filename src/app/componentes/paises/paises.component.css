@@ -80,6 +80,25 @@
   box-sizing: border-box;
 }
 
+/* Texto */
+
+.info-header p {
+  margin: 5px 0 0;
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 17px;
+}
+
+.contenedor {
+  background-color: #f1f3f8;
+  min-height: 100vh;
+  padding: 50px 8%;
+  box-sizing: border-box;
+}
+
 /* SECCIÓN DE PAÍSES */
 .paises-section {
   background: #eef0f4;
@@ -341,44 +360,6 @@
 
 :host {
   display: block;
-}
-
-/* ENCABEZADO */
-.info-header {
-  background: #0647a9;
-  color: #fff;
-  padding: 35px 44px;
-}
-
-.info-header-content {
-  max-width: 1250px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.info-icon {
-  width: 60px;
-  height: 60px;
-  flex-shrink: 0;
-  border-radius: 14px;
-  background: #5fcefe;
-  color: #0647a9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 29px;
-}
-
-.info-header h1 {
-  margin: 0 0 8px;
-  font-size: 34px;
-}
-
-.info-header p {
-  margin: 0;
-  font-size: 16px;
 }
 
 /* CUADRÍCULA DE PAÍSES */
